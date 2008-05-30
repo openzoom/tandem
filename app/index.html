@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>tandem &#8212; explore your world</title>
+        <meta name="description" content="tandem is a new way to explore your world of photos. tandem is open source. created by Daniel Gasienica."/>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="assets/scripts/swfobject/swfobject.js"></script>
+        <script type="text/javascript" src="assets/scripts/swfaddress/swfaddress.js"></script>
+        <script type="text/javascript" src="assets/scripts/extMouseWheel.js"></script>
+        <link rel="stylesheet" href="assets/style/tandem.css" media="all" type="text/css" />
+    </head>
+    <body>
+        <div id="content">
+            <p>You need to upgrade your Flash Player. <a href="http://www.adobe.com/go/getflashplayer/"/>Download here.</a><br />
+            <a href="?detectflash=false">Bypass the detection</a> if you wish.</p>
+        </div>
+        
+        <!-- tandem -->
+        <script type="text/javascript">
+        // <![CDATA[
+            var tandem = new SWFObject("tandem.swf", "tandem", "100%", "100%", "9", "#222222");
+            tandem.useExpressInstall("assets/scripts/swfobject/expressinstall.swf");
+            tandem.addParam("scale", "noScale");
+            tandem.addParam("allowFullScreen", "true");
+            tandem.write("content");
+        // ]]>
+        </script>
+        
+        <!-- Tracker -->
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            var pageTracker = _gat._getTracker("UA-2390888-1");
+            pageTracker._setDomainName("gasi.ch");
+            pageTracker._initData();
+            pageTracker._trackPageview();
+        </script>
+    </body>
+</html>
