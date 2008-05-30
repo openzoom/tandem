@@ -25,14 +25,14 @@ import flash.display.Shape;
 import flash.display.Sprite;
 import flash.geom.Rectangle;
 
-import tandem.core.zooming.IZoomController;
-import tandem.core.zooming.IZoomModel;
-import tandem.core.zooming.IZoomable;
-import tandem.core.zooming.ZoomModel;
-import tandem.core.zooming.ZoomModelEvent;
-import tandem.core.zooming.controllers.ZoomKeyboardController;
-import tandem.core.zooming.controllers.ZoomMouseController;
-import tandem.core.zooming.controllers.ZoomTransformationController;
+import tandem.core.IZoomController;
+import tandem.core.IZoomModel;
+import tandem.core.IZoomable;
+import tandem.core.ZoomKeyboardController;
+import tandem.core.ZoomModel;
+import tandem.core.ZoomModelEvent;
+import tandem.core.ZoomMouseController;
+import tandem.core.ZoomTransformationController;
 
 public class ZoomViewport extends Sprite implements IZoomModel
 {

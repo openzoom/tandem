@@ -28,9 +28,9 @@ import flash.display.Sprite;
 import flash.events.Event;
 import flash.geom.Rectangle;
 
-import tandem.core.zooming.IZoomModel;
-import tandem.core.zooming.IZoomable;
-import tandem.core.zooming.ZoomModelEvent;
+import tandem.core.IZoomModel;
+import tandem.core.IZoomable;
+import tandem.core.ZoomModelEvent;
 
 
 public class ZoomNavigator extends Sprite implements IZoomable
