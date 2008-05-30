@@ -17,14 +17,14 @@
 //  along with tandem. If not, see <http://www.gnu.org/licenses/>.
 //
 ////////////////////////////////////////////////////////////////////////////////
-package tandem.core
+package tandem.core.zooming.controllers
 {
 	
 import caurina.transitions.Tweener;
 
 import flash.geom.Rectangle;
 
-import tandem.core.ZoomModelEvent;
+import tandem.core.zooming.ZoomModelEvent;
 	
 public class ZoomTransformationController extends AbstractZoomController
 {

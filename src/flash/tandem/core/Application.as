@@ -403,7 +403,7 @@ public class Application extends Sprite
         if( navigator )
         {
             navigator.x = stage.stageWidth - navigator.width - 12
-            navigator.y = 12
+            navigator.y = globalNavigation ? globalNavigation.height + 12 : 12
         }
 	 
 		// Timeline

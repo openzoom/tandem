@@ -17,12 +17,16 @@
 //  along with tandem. If not, see <http://www.gnu.org/licenses/>.
 //
 ////////////////////////////////////////////////////////////////////////////////
-package tandem.core
+package tandem.core.zooming.controllers
 {
 
 import flash.display.DisplayObject;
 import flash.events.Event;
 import flash.geom.Rectangle;
+
+import tandem.core.zooming.IZoomController;
+import tandem.core.zooming.IZoomModel;
+import tandem.core.zooming.ZoomModelEvent;
 
 /* abstract */ public class AbstractZoomController implements IZoomController
 {	

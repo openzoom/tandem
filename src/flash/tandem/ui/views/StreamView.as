@@ -28,9 +28,9 @@ import flash.events.TimerEvent;
 import flash.geom.Rectangle;
 import flash.utils.Timer;
 
-import tandem.core.IZoomModel;
-import tandem.core.IZoomable;
-import tandem.core.ZoomModelEvent;
+import tandem.core.zooming.IZoomModel;
+import tandem.core.zooming.IZoomable;
+import tandem.core.zooming.ZoomModelEvent;
 import tandem.ui.views.renderers.PhotoRenderer;
 
 

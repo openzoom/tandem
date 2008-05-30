@@ -17,7 +17,7 @@
 //  along with tandem. If not, see <http://www.gnu.org/licenses/>.
 //
 ////////////////////////////////////////////////////////////////////////////////
-package tandem.core
+package tandem.core.zooming
 {
 
 import flash.display.DisplayObject;
