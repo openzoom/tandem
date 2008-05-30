@@ -28,11 +28,10 @@ import flash.events.TimerEvent;
 import flash.geom.Rectangle;
 import flash.utils.Timer;
 
-import tandem.core.IZoomable;
-import tandem.core.ZoomModel;
-import tandem.core.ZoomModelEvent;
+import tandem.core.zooming.IZoomModel;
+import tandem.core.zooming.IZoomable;
+import tandem.core.zooming.ZoomModelEvent;
 import tandem.ui.views.renderers.PhotoRenderer;
-import tandem.util.SystemUtil;
 
 
 public class StreamView extends Sprite implements IZoomable
@@ -107,14 +106,14 @@ public class StreamView extends Sprite implements IZoomable
     //  model
     //----------------------------------
     
-    private var _model : ZoomModel
+    private var _model : IZoomModel
     
-    public function get model() : ZoomModel
+    public function get model() : IZoomModel
     {
         return _model
     }
     
-    public function set model( value : ZoomModel ) : void
+    public function set model( value : IZoomModel ) : void
     {
         _model = value
         _model.addEventListener( ZoomModelEvent.CHANGE, modelChangeHandler )

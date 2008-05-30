@@ -28,11 +28,12 @@ import flash.display.Sprite;
 import flash.events.Event;
 import flash.geom.Rectangle;
 
-import tandem.core.ZoomModel;
-import tandem.core.ZoomModelEvent;
+import tandem.core.zooming.IZoomModel;
+import tandem.core.zooming.IZoomable;
+import tandem.core.zooming.ZoomModelEvent;
 
 
-public class ZoomNavigator extends Sprite
+public class ZoomNavigator extends Sprite implements IZoomable
 {
     //--------------------------------------------------------------------------
     //
@@ -64,12 +65,11 @@ public class ZoomNavigator extends Sprite
 	
     //--------------------------------------------------------------------------
     //
-    //  Class Constants
+    //  Variables
     //
     //--------------------------------------------------------------------------
     
 	private var explicitWidth : Number = 250
-	
 	
     //--------------------------------------------------------------------------
     //
@@ -81,17 +81,17 @@ public class ZoomNavigator extends Sprite
     //  model
     //----------------------------------	
 	
-	private var _model : ZoomModel  
+	private var _model : IZoomModel
 	
-	public function get model() : ZoomModel
+	public function get model() : IZoomModel
 	{
 		return _model
 	}
 	
-	public function set model( value : ZoomModel ) : void
+	public function set model( value : IZoomModel ) : void
 	{
 		_model = value
-		model.addEventListener( ZoomModelEvent.CHANGE, modelChangeHandler )
+		model.addEventListener( ZoomModelEvent.CHANGE, model_changeHandler )
 	}
 	
     //--------------------------------------------------------------------------
@@ -100,7 +100,7 @@ public class ZoomNavigator extends Sprite
     //
     //--------------------------------------------------------------------------
     
-	private function modelChangeHandler( event : ZoomModelEvent = null ) : void
+	private function model_changeHandler( event : ZoomModelEvent ) : void
 	{
 		var vp : Rectangle = model.viewport
 		
@@ -129,7 +129,7 @@ public class ZoomNavigator extends Sprite
     
     //--------------------------------------------------------------------------
     //
-    //  Event Handler: Stage
+    //  Event Handlers: Stage
     //
     //--------------------------------------------------------------------------
     
@@ -146,7 +146,7 @@ public class ZoomNavigator extends Sprite
 	
 	private function resizeHandler( event : Event = null ) : void
 	{
-		modelChangeHandler()
+		model_changeHandler( null )
 	}
 	
     //--------------------------------------------------------------------------
@@ -175,8 +175,8 @@ public class ZoomNavigator extends Sprite
 		
 		var g : Graphics = thumb.graphics
 		
-			g.beginFill( 0xFF0000, 0.2 )
-			g.lineStyle( 0, 0xFF0000 )
+			g.beginFill( 0xFF3300, 0.2 )
+			g.lineStyle( 0, 0xFF3300 )
 			g.drawRect( 0, 0, 20, 20 )
 			g.endFill()
 			

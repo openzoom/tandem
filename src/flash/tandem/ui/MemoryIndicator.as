@@ -33,7 +33,6 @@ public class MemoryIndicator extends Sprite
     //  Constructor
     //
     //--------------------------------------------------------------------------
-    
     /**
      *  Constructor.
      */

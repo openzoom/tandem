@@ -35,6 +35,7 @@ import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.system.Security;
+import flash.utils.setTimeout;
 
 import tandem.events.TandemEvent;
 import tandem.model.ApplicationModel;
@@ -43,9 +44,8 @@ import tandem.ui.GlobalNavigationComponent;
 import tandem.ui.MemoryIndicator;
 import tandem.ui.MemoryIndicatorComponent;
 import tandem.ui.Timeline;
-import tandem.ui.TimelineComponent;
-import tandem.ui.ZoomContainer;
 import tandem.ui.ZoomNavigator;
+import tandem.ui.ZoomViewport;
 import tandem.ui.views.StreamView;
 
     
@@ -83,7 +83,7 @@ public class Application extends Sprite
     private var memoryIndicator : MemoryIndicator
     private var timeline : Timeline
     
-    private var container : ZoomContainer
+    private var viewport : ZoomViewport
     private var navigator : ZoomNavigator 
     
     private var view : DisplayObject
@@ -182,7 +182,7 @@ public class Application extends Sprite
         createMemoryIndicator()
     }
     
-	private function createContainer() : void
+	private function createViewport() : void
 	{
 		done = false
 		model.photos = []
@@ -197,16 +197,16 @@ public class Application extends Sprite
         view = new StreamView()
         
 		// container
-		container = new ZoomContainer()
-        container.view = view
+		viewport = new ZoomViewport()
+        viewport.view = view
         
         // navigator
         navigator = new ZoomNavigator()
-        navigator.model = container.model
+        navigator.model = viewport
         navigator.alpha = 0
         
         // add children to display list
-        addChildAt( container, 0 )
+        addChildAt( viewport, 0 )
         addChildAt( view, 1 )
         addChildAt( navigator, 2 )
         
@@ -350,7 +350,7 @@ public class Application extends Sprite
         if( event.success )
         {
             model.user = User( event.data.user )
-            createContainer()
+            createViewport()
             SWFAddress.setTitle( "tandem — " + model.user.username + " (" + model.user.nsid + ")" )
         }
         else
@@ -365,7 +365,7 @@ public class Application extends Sprite
         if( event.success )
         {
             model.user = User( event.data.user )
-            createContainer()
+            createViewport()
             SWFAddress.setTitle( "tandem — " + model.user.username + " (" + model.user.nsid + ")" )
         }
         else
@@ -390,20 +390,20 @@ public class Application extends Sprite
             globalNavigation.y = 0
         }
 		
-        // Container
-        if( container )
+        // Viewport
+        if( viewport )
         {
-            container.x = 0
-            container.y = 0
-            container.width = stage.stageWidth
-            container.height = stage.stageHeight
+            viewport.x = 0
+            viewport.y = 0
+            viewport.width = stage.stageWidth
+            viewport.height = stage.stageHeight
         }
         		
 		// Navigator
         if( navigator )
         {
             navigator.x = stage.stageWidth - navigator.width - 12
-            navigator.y = globalNavigation ? globalNavigation.height + 12 : 12
+            navigator.y = 12
         }
 	 
 		// Timeline
