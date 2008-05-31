@@ -46,7 +46,7 @@ public class ZoomViewport extends Sprite implements IZoomModel
      */
 	public function ZoomViewport()
 	{
-		createBackground()
+		createContentMask()
 		createModel()
         createControllers()
 	}
@@ -57,7 +57,7 @@ public class ZoomViewport extends Sprite implements IZoomModel
     //
     //--------------------------------------------------------------------------    
     
-    private var background : Shape
+    private var contentMask : Shape
     
     //--------------------------------------------------------------------------
     //
@@ -92,7 +92,7 @@ public class ZoomViewport extends Sprite implements IZoomModel
         for each( var controller : IZoomController in controllers )
             controller.view = view
 		
-		applyMask()
+		applyContentMask()
 		
 		if( view is IZoomable )
 		    IZoomable( view ).model = model
@@ -112,21 +112,21 @@ public class ZoomViewport extends Sprite implements IZoomModel
     //  masked
     //----------------------------------
     
-    private var _masked : Boolean = true
+    private var _clipContent : Boolean = true
     
-    public function get masked() : Boolean
+    public function get clipContent() : Boolean
     {
-        return _masked
+        return _clipContent
     }
     
-    public function set masked( value : Boolean ) : void
+    public function set clipContent( value : Boolean ) : void
     {
-    	if( masked == value )
+    	if( clipContent == value )
     	   return
     	      
-        _masked = value
+        _clipContent = value
         
-        applyMask()        
+        applyContentMask()        
     }
     
     //----------------------------------
@@ -377,15 +377,15 @@ public class ZoomViewport extends Sprite implements IZoomModel
 
     override public function get width() : Number
     {
-        return background.width    
+        return contentMask.width    
     }
     
     override public function set width( value : Number ) : void
     {
-        if( background.width == value )
+        if( contentMask.width == value )
            return
         
-        background.width = value
+        contentMask.width = value
         
         for each( var controller : IZoomController in controllers )
         {
@@ -402,15 +402,15 @@ public class ZoomViewport extends Sprite implements IZoomModel
 
     override public function get height() : Number
     {
-        return background.height
+        return contentMask.height
     }
     
     override public function set height( value : Number ) : void
     {
-        if( background.height == value )
+        if( contentMask.height == value )
            return
         
-        background.height = value
+        contentMask.height = value
         
         for each( var controller : IZoomController in controllers )
         {
@@ -438,14 +438,14 @@ public class ZoomViewport extends Sprite implements IZoomModel
     //
     //--------------------------------------------------------------------------
     
-    private function createBackground() : void
+    private function createContentMask() : void
     {
-        background = new Shape()
-        background.graphics.beginFill( 0x000000, 0 )
-        background.graphics.drawRect( 0, 0, 100, 100 )
-        background.graphics.endFill()
+        contentMask = new Shape()
+        contentMask.graphics.beginFill( 0x000000, 0 )
+        contentMask.graphics.drawRect( 0, 0, 100, 100 )
+        contentMask.graphics.endFill()
         
-        addChild( background )
+        addChild( contentMask )
     }
     
     private function createModel() : void
@@ -487,10 +487,10 @@ public class ZoomViewport extends Sprite implements IZoomModel
         return true 
     }
     
-    private function applyMask() : void
+    private function applyContentMask() : void
     {
         if( view )
-            view.mask = masked ? background : null  
+            view.mask = clipContent ? contentMask : null  
     }
 }
 

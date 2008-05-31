@@ -39,6 +39,8 @@ import tandem.events.TandemEvent;
 import tandem.model.ApplicationModel;
 import tandem.ui.GlobalNavigation;
 import tandem.ui.GlobalNavigationComponent;
+import tandem.ui.KeyboardNavigationButton;
+import tandem.ui.KeyboardNavigationButtonComponent;
 import tandem.ui.MemoryIndicator;
 import tandem.ui.MemoryIndicatorComponent;
 import tandem.ui.NotificationOverlay;
@@ -82,6 +84,7 @@ public class Application extends Sprite
     private var globalNavigation : GlobalNavigation
     private var memoryIndicator : MemoryIndicator
     private var notificationOverlay : NotificationOverlay
+    private var keyboardNavigationButton : KeyboardNavigationButton
     private var timeline : Timeline
     
     private var viewport : ZoomViewport
@@ -181,6 +184,7 @@ public class Application extends Sprite
         createGlobalNavigation()
         createMemoryIndicator()
         createNotificationOverlay()
+        createKeyboardNavigationButton()
     }
     
 	private function createViewport() : void
@@ -265,6 +269,22 @@ public class Application extends Sprite
                                 alpha: 1,
                                 time: 1.5,
                                 delay: 2
+                            }
+                        )
+    }
+    
+    private function createKeyboardNavigationButton() : void
+    {
+        keyboardNavigationButton = new KeyboardNavigationButtonComponent()
+        keyboardNavigationButton.alpha = 0
+        addChild( keyboardNavigationButton )
+        
+        Tweener.addTween(
+                            keyboardNavigationButton,
+                            {
+                                alpha: 1,
+                                time: 1.5,
+                                delay: 1
                             }
                         )
     }
@@ -484,6 +504,13 @@ public class Application extends Sprite
         {
             notificationOverlay.x = ( stage.stageWidth - notificationOverlay.width ) / 2
             notificationOverlay.y = ( stage.stageHeight - notificationOverlay.height ) / 2
+        }
+        
+        // Keyboard Navigation Button
+        if( keyboardNavigationButton )
+        {
+            keyboardNavigationButton.x = ( stage.stageWidth - keyboardNavigationButton.width ) / 2
+            keyboardNavigationButton.y = stage.stageHeight - keyboardNavigationButton.height - 10
         }
 	}
 }
