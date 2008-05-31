@@ -85,6 +85,11 @@ public class ZoomKeyboardController extends AbstractZoomController
     private var leftActivated : Boolean
     private var rightActivated : Boolean
 
+    private var pageUpActivated : Boolean
+    private var pageDownActivated : Boolean
+    private var homeActivated : Boolean
+    private var endActivated : Boolean
+
     private var zoomInActivated : Boolean
     private var zoomOutActivated : Boolean
     
@@ -128,6 +133,24 @@ public class ZoomKeyboardController extends AbstractZoomController
                 rightActivated = value
                 break
                 
+                
+            case Keyboard.PAGE_UP:
+                pageUpActivated = value
+                break
+                
+            case Keyboard.PAGE_DOWN:
+                pageDownActivated = value
+                break
+                
+            case Keyboard.HOME:
+                homeActivated = value
+                break
+                
+            case Keyboard.END:
+                endActivated = value
+                break
+                
+                
             case Keyboard.NUMPAD_ADD:
             case 73: // I
                 zoomInActivated = value
@@ -162,6 +185,20 @@ public class ZoomKeyboardController extends AbstractZoomController
         
         if( rightActivated )
             model.moveBy( horizontalStep, 0 )
+        
+        
+        if( pageUpActivated )
+            model.moveTo( model.viewport.x, 0 )
+        
+        if( pageDownActivated )
+            model.moveTo( model.viewport.x, 1 )
+        
+        if( homeActivated )
+            model.moveTo( 0, model.viewport.y )
+        
+        if( endActivated )
+            model.moveTo( 1, model.viewport.y )
+        
         
         if( zoomInActivated )
             model.zoomBy( 11/7 )
