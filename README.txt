@@ -58,3 +58,6 @@
   ~ SWFAddress by Rostislav Hristov
     http://www.asual.com/swfaddress/
     
+  ~ Image Zoom Drag Component by Rick Companje
+    http://www.companje.nl/index.php/2007/06/28/flex-image-zoom-drag-component/
+    

@@ -50,7 +50,7 @@ public class ZoomModel extends EventDispatcher implements IZoomModel
     //  minZoom
     //----------------------------------
     
-    private var _minZoom : Number = 0.3
+    private var _minZoom : Number = 1
     
     public function get minZoom() : Number
     {

@@ -162,7 +162,7 @@ public class ZoomNavigator extends Sprite implements IZoomable
 		var g : Graphics = background.graphics
 		
 			g.beginFill( 0x000000, 0.6 )
-			g.drawRect( 0, 0, explicitWidth, explicitWidth )
+			g.drawRect( 0, 0, 100, 100 )
 			g.endFill()
 			
 		addChild( background )
@@ -177,7 +177,7 @@ public class ZoomNavigator extends Sprite implements IZoomable
 		
 			g.beginFill( 0xFF3300, 0.2 )
 			g.lineStyle( 0, 0xFF3300 )
-			g.drawRect( 0, 0, 20, 20 )
+			g.drawRect( 0, 0, 100, 100 )
 			g.endFill()
 			
 		addChild( thumb )

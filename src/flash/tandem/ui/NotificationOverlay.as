@@ -17,46 +17,33 @@
 //  along with tandem. If not, see <http://www.gnu.org/licenses/>.
 //
 ////////////////////////////////////////////////////////////////////////////////
-package tandem.events
+package tandem.ui
 {
-	
-import flash.events.Event;
 
+import flash.display.Sprite;
+import flash.text.TextField;
 
-public class TandemEvent extends Event
-{
-	//--------------------------------------------------------------------------
-    //
-    //  Class constants
-    //
-    //--------------------------------------------------------------------------
-    
-	public static const RESIZE : String = "resize"
-	public static const APPLICATION_COMPLETE : String = "applicationComplete"
-	public static const DATA_CHANGE : String = "dataChange"
-	
+public class NotificationOverlay extends Sprite
+{	
     //--------------------------------------------------------------------------
     //
     //  Constructor
     //
     //--------------------------------------------------------------------------
-    
-	public function TandemEvent( type : String, bubbles : Boolean = false,
-	                             cancelable : Boolean = false )
+    /**
+     *  Constructor.
+     */
+	public function NotificationOverlay()
 	{
-		super( type, bubbles, cancelable );
 	}
 	
     //--------------------------------------------------------------------------
     //
-    //  Overridden Methods
+    //  Children
     //
-    //--------------------------------------------------------------------------
-    
-	override public function clone() : Event
-	{
-		return new TandemEvent( type, bubbles, cancelable )
-	}
+    //--------------------------------------------------------------------------	
+	
+    public var label : TextField
 }
 
 }

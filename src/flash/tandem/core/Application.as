@@ -25,7 +25,6 @@ import caurina.transitions.properties.ColorShortcuts;
 
 import com.adobe.webapis.flickr.FlickrService;
 import com.adobe.webapis.flickr.PagedPhotoList;
-import com.adobe.webapis.flickr.Photo;
 import com.adobe.webapis.flickr.User;
 import com.adobe.webapis.flickr.events.FlickrResultEvent;
 
@@ -35,7 +34,6 @@ import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.system.Security;
-import flash.utils.setTimeout;
 
 import tandem.events.TandemEvent;
 import tandem.model.ApplicationModel;
@@ -43,12 +41,13 @@ import tandem.ui.GlobalNavigation;
 import tandem.ui.GlobalNavigationComponent;
 import tandem.ui.MemoryIndicator;
 import tandem.ui.MemoryIndicatorComponent;
+import tandem.ui.NotificationOverlay;
+import tandem.ui.NotificationOverlayComponent;
 import tandem.ui.Timeline;
 import tandem.ui.ZoomNavigator;
 import tandem.ui.ZoomViewport;
 import tandem.ui.views.StreamView;
 
-    
 public class Application extends Sprite
 {	
     //--------------------------------------------------------------------------
@@ -72,6 +71,7 @@ public class Application extends Sprite
     
     private const DEFAULT_USER_ADDRESS : String = "gasi"
     private const DEFAULT_USER_ID : String = "72389028@N00"
+    private const DEFAULT_MINIMUM_ZOOM : Number = 0.5
     
     //--------------------------------------------------------------------------
     //
@@ -81,12 +81,14 @@ public class Application extends Sprite
     
     private var globalNavigation : GlobalNavigation
     private var memoryIndicator : MemoryIndicator
+    private var notificationOverlay : NotificationOverlay
     private var timeline : Timeline
     
     private var viewport : ZoomViewport
     private var navigator : ZoomNavigator 
     
     private var view : DisplayObject
+    private var initialized : Boolean = false
     
 
     //--------------------------------------------------------------------------
@@ -95,12 +97,10 @@ public class Application extends Sprite
     //
     //--------------------------------------------------------------------------
     
-    private var numPhotos : int = 363
-
-    // Data Model
     private var model : ApplicationModel = ApplicationModel.getInstance()
-    private var done : Boolean = false
+    private var completed : Boolean = false
 
+    private var numPhotos : int = 363
     private var page : int = 1
     private var pageSize : int = 500
     private var extras : String = "date_taken"
@@ -180,11 +180,12 @@ public class Application extends Sprite
         createTimeline()
         createGlobalNavigation()
         createMemoryIndicator()
+        createNotificationOverlay()
     }
     
 	private function createViewport() : void
 	{
-		done = false
+		completed = false
 		model.photos = []
 		
 		if( view )
@@ -194,10 +195,13 @@ public class Application extends Sprite
 		    removeChild( navigator )
 		
 		// view
+		initialized = false
         view = new StreamView()
+        view.alpha = 0
         
 		// container
 		viewport = new ZoomViewport()
+		viewport.minZoom = DEFAULT_MINIMUM_ZOOM
         viewport.view = view
         
         // navigator
@@ -209,6 +213,17 @@ public class Application extends Sprite
         addChildAt( viewport, 0 )
         addChildAt( view, 1 )
         addChildAt( navigator, 2 )
+        
+        
+        // fade in notification overlay
+        Tweener.addTween(
+                            notificationOverlay,
+                            {
+                                alpha: 1,
+                                time: 1
+                            }
+                        )
+        
         
         // call service
         model.service.people.getPublicPhotos( model.user.nsid, extras,
@@ -230,12 +245,29 @@ public class Application extends Sprite
 		globalNavigation = new GlobalNavigationComponent()
 		addChild( globalNavigation )
 	}
-	
-	private function createMemoryIndicator() : void
-	{
-		memoryIndicator = new MemoryIndicatorComponent()
-		addChild( memoryIndicator )
-	}
+    
+    private function createMemoryIndicator() : void
+    {
+        memoryIndicator = new MemoryIndicatorComponent()
+        addChild( memoryIndicator )
+    }
+    
+    private function createNotificationOverlay() : void
+    {
+        notificationOverlay = new NotificationOverlayComponent()
+        notificationOverlay.alpha = 0
+        addChild( notificationOverlay )
+        
+        // fade in notification overlay
+        Tweener.addTween(
+                            notificationOverlay,
+                            {
+                                alpha: 1,
+                                time: 1.5,
+                                delay: 2
+                            }
+                        )
+    }
     
     //--------------------------------------------------------------------------
     //
@@ -293,15 +325,35 @@ public class Application extends Sprite
     
     private function applicationCompleteHandler( event : Event ) : void
     {
+    	// fade in view
+        Tweener.addTween(
+                             view,
+                             {
+                                alpha: 1,
+                                time: 5
+                             }
+                        )
+        
+        // fade in navigator
         Tweener.addTween(
                            navigator,
                            {
                                alpha: 1,
                                time: 2,
-                               delay: 0.5
+                               delay: 2
                            }
                         )
-                        
+        
+        // fade out notification
+        Tweener.addTween(
+                           notificationOverlay,
+                           {
+                               alpha: 0,
+                               time: 0.8,
+                               delay: 1.8
+                           }
+                        )
+                         
        updateDisplayList()
     }
     
@@ -314,34 +366,41 @@ public class Application extends Sprite
     private function getPublicPhotosHandler( event : FlickrResultEvent ) : void
     {
         if( event.success )
-        {
+        {                
             var result : PagedPhotoList = PagedPhotoList( event.data.photos )
-
-            model.photos = model.photos.concat(
-                                 result.photos.map(
-		                                    function( item : *,
-		                                             ...ignored ) : Photo
-		                                    {
-		                                        return Photo( item )              	
-		                                    }
-			                     )
-			                   )
             
-            if( model.photos.length >= Math.min( numPhotos, result.total ) && !done )
-            {
-                done = true
-                
-                if( view is StreamView )
-                    StreamView( view ).dataProvider = model.photos.slice( 0, numPhotos )
-                    
-                dispatchEvent( new TandemEvent( TandemEvent.APPLICATION_COMPLETE ) )
+            // add result data to view
+            if( view is StreamView )
+            {            	
+            	result.photos.forEach(
+                                            function( item : *,
+                                                     ...ignored ) : void
+                                            {
+                                            	model.photos.push( item )
+                                                StreamView( view ).addItem( item )                
+                                            }
+                                     )
+            	
             }
             
-            if( result.page < result.pages && !done )
+            // we're done
+            if( model.photos.length >= Math.min( numPhotos, result.total ) && !completed )
+            {
+                completed = true
+            }
+            
+            // fetch more data
+            if( result.page < result.pages && !completed )
             {
                 page++
                 model.service.people.getPublicPhotos( model.user.nsid, extras, pageSize, page )
-            } 
+            }
+            
+            if( !initialized )
+            {
+                initialized = true
+                dispatchEvent( new TandemEvent( TandemEvent.APPLICATION_COMPLETE ) )                
+            }
         }           
     }
     
@@ -412,13 +471,20 @@ public class Application extends Sprite
 			timeline.width = stage.stageWidth
 			timeline.y = stage.stageHeight - timeline.height		
 		}
-		
-		// Memory Indicator
-		if( memoryIndicator )
-		{
+        
+        // Memory Indicator
+        if( memoryIndicator )
+        {
             memoryIndicator.x = stage.stageWidth - memoryIndicator.width - 10
             memoryIndicator.y = stage.stageHeight - memoryIndicator.height - 10
-		}
+        }
+        
+        // Notification Overlay
+        if( notificationOverlay )
+        {
+            notificationOverlay.x = ( stage.stageWidth - notificationOverlay.width ) / 2
+            notificationOverlay.y = ( stage.stageHeight - notificationOverlay.height ) / 2
+        }
 	}
 }
 

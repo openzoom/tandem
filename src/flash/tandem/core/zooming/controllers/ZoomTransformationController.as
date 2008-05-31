@@ -22,9 +22,11 @@ package tandem.core.zooming.controllers
 	
 import caurina.transitions.Tweener;
 
+import flash.events.Event;
 import flash.geom.Rectangle;
 
 import tandem.core.zooming.ZoomModelEvent;
+import tandem.events.TandemEvent;
 	
 public class ZoomTransformationController extends AbstractZoomController
 {
@@ -59,9 +61,19 @@ public class ZoomTransformationController extends AbstractZoomController
     
     //--------------------------------------------------------------------------
     //
-    //  Overridden Methods: Model Event Handler
+    //  Overridden Methods
     //
     //--------------------------------------------------------------------------
+    
+    override protected function view_addedToStageHandler( event : Event ) : void
+    {
+        view.addEventListener( TandemEvent.RESIZE, view_resizeHandler )
+    }
+    
+    override protected function view_removedFromStageHandler( event : Event ) : void
+    {
+        view.removeEventListener( TandemEvent.RESIZE, view_resizeHandler )
+    }
     
     override protected function model_changeHandler( event : ZoomModelEvent ) : void
     {
@@ -92,6 +104,17 @@ public class ZoomTransformationController extends AbstractZoomController
                                }
                             )
         }
+    }
+    
+    //--------------------------------------------------------------------------
+    //
+    //  Event Handlers
+    //
+    //--------------------------------------------------------------------------
+    
+    private function view_resizeHandler( event : Event ) : void
+    {
+    	model.viewAspectRatio = view.width / view.height   	
     }
 }
 

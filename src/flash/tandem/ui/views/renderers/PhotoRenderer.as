@@ -41,7 +41,6 @@ import tandem.model.ApplicationModel;
 import tandem.util.PhotoDimension;
 import tandem.util.PhotoUtil;
 
-
 public class PhotoRenderer extends Sprite implements IDataRenderer
 {
     //--------------------------------------------------------------------------
@@ -184,7 +183,7 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
                                 _color: backgroundColor,
                                 time: 0
 						    }
-		                )
+		                )             
     }
     
     //--------------------------------------------------------------------------

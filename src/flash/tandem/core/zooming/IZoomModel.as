@@ -3,7 +3,7 @@
 //  tandem. explore your world.
 //  Copyright (c) 2007–2008 Daniel Gasienica (daniel@gasienica.ch)
 //
-//  The ZoomModel class is inspired by the work of
+//  The IZoomModel interface is inspired by the work of
 //  Rick Companje, http://www.companje.nl/
 //
 //  tandem is free software: you can redistribute it and/or modify

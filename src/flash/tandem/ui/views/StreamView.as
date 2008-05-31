@@ -22,8 +22,12 @@ package tandem.ui.views
 
 import br.com.stimuli.loading.BulkLoader;
 
+import caurina.transitions.Tweener;
+
 import flash.display.Graphics;
+import flash.display.Shape;
 import flash.display.Sprite;
+import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.geom.Rectangle;
 import flash.utils.Timer;
@@ -32,7 +36,6 @@ import tandem.core.zooming.IZoomModel;
 import tandem.core.zooming.IZoomable;
 import tandem.core.zooming.ZoomModelEvent;
 import tandem.ui.views.renderers.PhotoRenderer;
-
 
 public class StreamView extends Sprite implements IZoomable
 {
@@ -49,7 +52,6 @@ public class StreamView extends Sprite implements IZoomable
 		createLoader()
 		createTimer()
 		createBackground()
-        createRenderers()
 	}
 	
     //--------------------------------------------------------------------------
@@ -58,8 +60,9 @@ public class StreamView extends Sprite implements IZoomable
     //
     //--------------------------------------------------------------------------
     
-	private static const RENDER_DELAY : Number = 125
-	private static const ZOOM_THRESHOLD : Number = 3
+	private static const RENDER_DELAY : Number = 180
+	private static const ZOOM_IN_THRESHOLD : Number = 3
+	private static const ZOOM_OUT_THRESHOLD : Number = 3.6
 	
     //--------------------------------------------------------------------------
     //
@@ -68,40 +71,23 @@ public class StreamView extends Sprite implements IZoomable
     //--------------------------------------------------------------------------
     
 	public var numRows : Number = 11
-	public var numColumns : Number = 33
+	public var numColumns : Number = 100
 	
-	private var spacing : Number = 180
-	private var padding : Number = 1000
+	private var spacing : Number = 200
+	private var padding : Number = 1500
 	
 	private var loader : BulkLoader
-	private var renderers : Array /* of PhotoRenderer */
+	private var renderers : Array /* of PhotoRenderer */ = []
 	private var timer : Timer
 	
-	private var background : Sprite
+	private var background : Shape
 	
     //--------------------------------------------------------------------------
     //
     //  Properties
     //
     //--------------------------------------------------------------------------
-	
-    //----------------------------------
-    //  dataProvider
-    //----------------------------------
-    
-	private var _dataProvider : Array /* of IDataRenderer */
-	
-	public function get dataProvider() : Array
-    {
-        return _dataProvider
-    }
-    
-    public function set dataProvider( value : Array ) : void
-    {
-        _dataProvider = value
-        populateRenderers()
-    }
-    
+
     //----------------------------------
     //  model
     //----------------------------------
@@ -116,7 +102,19 @@ public class StreamView extends Sprite implements IZoomable
     public function set model( value : IZoomModel ) : void
     {
         _model = value
-        _model.addEventListener( ZoomModelEvent.CHANGE, modelChangeHandler )
+        _model.addEventListener( ZoomModelEvent.CHANGE, model_changeHandler )
+    }
+    
+    //--------------------------------------------------------------------------
+    //
+    //  Methods
+    //
+    //--------------------------------------------------------------------------
+    
+    public function addItem( item : * ) : void
+    {    	
+    	addRenderer( item )
+    	model_changeHandler( null )
     }
     
     //--------------------------------------------------------------------------
@@ -125,19 +123,18 @@ public class StreamView extends Sprite implements IZoomable
     //
     //--------------------------------------------------------------------------
     
-    private function modelChangeHandler( event : ZoomModelEvent ) : void
+    private function model_changeHandler( event : ZoomModelEvent ) : void
     {
     	timer.reset()
     	timer.start()
     }
     
-    private function timerCompleteHandler( event : TimerEvent ) : void
+    private function timer_completeHandler( event : TimerEvent ) : void
     {
 		var vp : Rectangle = model.viewport
 		
 		var factorX : Number =  width / scaleX
 		var factorY : Number =  height / scaleY
-		var margin : Number = 0
 		
 		var window : Rectangle = new Rectangle( vp.x * factorX, vp.y * factorY,
 		                            vp.width * factorX, vp.height * factorY )
@@ -149,7 +146,7 @@ public class StreamView extends Sprite implements IZoomable
 		
 		var numRenderers : uint = renderers.length
 		
-		for( var i : int = 0; i < numRenderers; i++ )
+		for( var i : int = numRenderers - 1; i >= 0; i-- )
 		{
 			var renderer : PhotoRenderer = renderers[ i ]
 			
@@ -158,80 +155,81 @@ public class StreamView extends Sprite implements IZoomable
 			if( ( window.containsRect( bounds ) || bounds.containsRect( window ) )
 			    && renderer.data )
 			{
-			   if( model.zoom >= ZOOM_THRESHOLD )
-			       renderer.displayQuality = PhotoRenderer.MEDIUM
-               else
-                   renderer.displayQuality = PhotoRenderer.LOW
+			   if( model.zoom > ZOOM_IN_THRESHOLD )
+			   {
+			       renderer.displayQuality = PhotoRenderer.MEDIUM			   	
+			   }
+               else if( model.zoom < ZOOM_OUT_THRESHOLD )
+               {
+                   renderer.displayQuality = PhotoRenderer.LOW               	
+               }
 			}
 		}
     }	
 	
     //--------------------------------------------------------------------------
     //
-    //  Methods
+    //  Methods: Internal
     //
     //--------------------------------------------------------------------------
     
-	private function createRenderers() : void
-	{
-		renderers = []
-		
-		for( var column : uint = 0; column < numColumns; column++ )
-		{
-    		for( var row : uint = 0; row < numRows; row++ )
-			{
-				var renderer : PhotoRenderer = new PhotoRenderer()
-				
-					renderer.x = padding + column * ( PhotoRenderer.DEFAULT_WIDTH + spacing )
-					renderer.y = padding + row * ( PhotoRenderer.DEFAULT_HEIGHT + spacing )
-
-                    renderer.loader = loader
-                    
-			    renderers.push( renderer )
-			    addChild( renderer )
-			}
-		}
-	}
-    
-    private function populateRenderers() : void
+    private function addRenderer( data : * ) : void
     {
-        renderers.forEach(
-                function( item : *, index : int, array : Array ) : void
-                {
-                    var renderer : PhotoRenderer = PhotoRenderer( item )
-                    
-                    if( dataProvider[ index ] != null )
-                    {
-                       renderer.data = dataProvider[ index ]
-                    }
-                }                 
-            )
-        timerCompleteHandler( null )
+        var renderer : PhotoRenderer = new PhotoRenderer()
+            renderers.push( renderer )
+        
+        var index : int = renderers.length - 1
+        
+        var row : uint = index % numRows
+        var column : uint = Math.floor( index / numRows )
+        
+            renderer.x = padding + column * ( PhotoRenderer.DEFAULT_WIDTH + spacing )
+            renderer.y = padding + row * ( PhotoRenderer.DEFAULT_HEIGHT + spacing )
+            
+            renderer.data = data
+            renderer.loader = loader
+            
+            renderer.alpha = 0
+            addChild( renderer )
+            
+            var newWidth : Number =  Math.min( column + 1, numColumns ) * ( PhotoRenderer.DEFAULT_WIDTH  + spacing ) + 2 * padding
+            var newHeight : Number = Math.max( row, numRows ) * ( PhotoRenderer.DEFAULT_HEIGHT + spacing ) + 2 * padding
+            
+            resizeBackground( newWidth, newHeight )
+            
+			Tweener.addTween(
+	                            renderer,
+	                            {
+	                                alpha: 1,
+	                                time: 2,
+	                                delay: index / 100 
+	                            }
+                            )
     }
-	
+    
 	private function createBackground() : void
 	{
-		background = new Sprite()
-		
-		var g : Graphics = background.graphics
-		    g.beginFill( 0x222222, 0 )
-		    g.drawRect(
-		                0,
-		                0,
-		                numColumns * ( PhotoRenderer.DEFAULT_WIDTH  + spacing ) + 2 * padding,
-		                numRows    * ( PhotoRenderer.DEFAULT_HEIGHT + spacing ) + 2 * padding
-		              )
-		              
-		    g.endFill()
-	  
-	  addChild( background )
-		
+		background = new Shape()
+		resizeBackground( 100, 100 )
+        addChild( background )
+	}
+	
+	private function resizeBackground( width : Number, height : Number ) : void
+	{
+        var g : Graphics = background.graphics
+        
+            g.clear()
+            g.beginFill( 0x333333, 0 )
+            g.drawRect( 0, 0, width, height )
+            g.endFill()
+            
+       dispatchEvent( new Event( "resize" ) )            
 	}
 	
     private function createTimer() : void
     {   
         timer = new Timer( RENDER_DELAY, 1 )
-        timer.addEventListener( TimerEvent.TIMER_COMPLETE, timerCompleteHandler )
+        timer.addEventListener( TimerEvent.TIMER_COMPLETE, timer_completeHandler )
     }
     
     private function createLoader() : void
