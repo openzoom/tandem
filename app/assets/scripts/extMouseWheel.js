@@ -126,18 +126,25 @@ var extMouseWheel = function()
 	
 	
 	// Handler for mouse wheel event:
-	var onWheelHandler = function(event)
+	var onWheelHandler = function( event )
 	{
 		var delta = 0;
-		if (!event) event = window.event;
+		if (!event)
+		    event = window.event;
+		
 		if (event.wheelDelta)
 		{
 			// Safari
 			delta = event.wheelDelta/120;
 			if (window.opera) delta = -delta;
 		}
-		else if (event.detail) // Firefox
-			delta = -event.detail*3;
+		else if (event.detail)
+		{
+			// Firefox
+			delta = -event.detail*0.9;
+			// Too fast
+			//delta = -event.detail*3;
+        }
 		
 		if (keepDeltaAtPlusMinusThree)
 		{
@@ -148,7 +155,6 @@ var extMouseWheel = function()
 		
 		if (delta)
 		{
-			
 			var thisFlashMovieId = null;
 			for (var j in f)
 				if (f[j] != null && f[j] == event.currentTarget) thisFlashMovieId = j;
@@ -174,17 +180,11 @@ var extMouseWheel = function()
 		};
 		
 		// Prevent default actions caused by mouse wheel
-		if (event.preventDefault) event.preventDefault();
+		if (event.preventDefault)
+		    event.preventDefault();
+		    
 		event.returnValue = false;
-		
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	return {
@@ -215,7 +215,6 @@ var extMouseWheel = function()
 				return false;
 		}
 	};
-	
 }();
 
 
