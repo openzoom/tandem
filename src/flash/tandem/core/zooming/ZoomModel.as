@@ -184,7 +184,6 @@ public class ZoomModel extends EventDispatcher implements IZoomModel
         _viewport.x = x
         _viewport.y = y
         
-
         if( _viewport.x < 0 )
         	_viewport.x = 0
         	

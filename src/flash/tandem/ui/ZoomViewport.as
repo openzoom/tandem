@@ -75,27 +75,27 @@ public class ZoomViewport extends Sprite implements IZoomModel
     //  view
     //----------------------------------
     
-	private var _view : DisplayObject
+	private var _content : DisplayObject
 	
-	public function get view() : DisplayObject
+	public function get content() : DisplayObject
 	{
-		return _view
+		return _content
 	}
 	
-	public function set view( value : DisplayObject ) : void
+	public function set content( value : DisplayObject ) : void
 	{
-		if( view == value )
+		if( content == value )
 		    return
 		    
-		_view = value
+		_content = value
 		
         for each( var controller : IZoomController in controllers )
-            controller.view = view
+            controller.view = content
 		
 		applyContentMask()
 		
-		if( view is IZoomable )
-		    IZoomable( view ).model = model
+		if( content is IZoomable )
+		    IZoomable( content ).model = model
 	}
 	
     //----------------------------------
@@ -148,9 +148,9 @@ public class ZoomViewport extends Sprite implements IZoomModel
         _keyboardNavigationEnabled = value
         
         if( keyboardNavigationEnabled )
-	       registerController( keyboardController )
+	       addController( keyboardController )
 	    else
-	       unregisterController( keyboardController )
+	       removeController( keyboardController )
     }
     
     //----------------------------------
@@ -172,9 +172,9 @@ public class ZoomViewport extends Sprite implements IZoomModel
         _mouseNavigationEnabled = value
         
         if( mouseNavigationEnabled )
-           registerController( mouseController )
+           addController( mouseController )
         else
-           unregisterController( mouseController )         
+           removeController( mouseController )         
     }
     
     //----------------------------------
@@ -196,9 +196,9 @@ public class ZoomViewport extends Sprite implements IZoomModel
         _enabled = value    
         
         if( enabled )
-           registerController( transformationController )
+           addController( transformationController )
         else
-           unregisterController( transformationController )
+           removeController( transformationController )
     }
 
     //--------------------------------------------------------------------------
@@ -307,12 +307,12 @@ public class ZoomViewport extends Sprite implements IZoomModel
     
     public function moveTo( x : Number, y : Number ) : void
     {
-        model.moveTo( x / view.width, y / view.height )	
+        model.moveTo( x / content.width, y / content.height )	
     }
     
     public function moveBy( x : Number, y : Number ) : void
     {
-    	model.moveBy( x / view.width, y / view.height )
+    	model.moveBy( x / content.width, y / content.height )
     }
 
     //--------------------------------------------------------------------------
@@ -466,7 +466,7 @@ public class ZoomViewport extends Sprite implements IZoomModel
             controller.model = model
     }
     
-    private function registerController( controller : IZoomController ) : Boolean
+    private function addController( controller : IZoomController ) : Boolean
     {
         if( controllers.indexOf( controller ) != -1 )
            return false
@@ -476,7 +476,7 @@ public class ZoomViewport extends Sprite implements IZoomModel
         return true 
     }
     
-    private function unregisterController( controller : IZoomController ) : Boolean
+    private function removeController( controller : IZoomController ) : Boolean
     {
         if( controllers.indexOf( controller ) == -1 )
            return false
@@ -489,8 +489,8 @@ public class ZoomViewport extends Sprite implements IZoomModel
     
     private function applyContentMask() : void
     {
-        if( view )
-            view.mask = clipContent ? contentMask : null  
+        if( content )
+            content.mask = clipContent ? contentMask : null  
     }
 }
 

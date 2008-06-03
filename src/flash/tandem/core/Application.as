@@ -73,7 +73,8 @@ public class Application extends Sprite
     
     private const DEFAULT_USER_ADDRESS : String = "gasi"
     private const DEFAULT_USER_ID : String = "72389028@N00"
-    private const DEFAULT_MINIMUM_ZOOM : Number = 0.5
+    private const DEFAULT_MINIMUM_ZOOM : Number = 0.25//0.5
+    private const DEFAULT_MAXIMUM_ZOOM : Number = 180
     
     //--------------------------------------------------------------------------
     //
@@ -106,7 +107,7 @@ public class Application extends Sprite
     private var numPhotos : int = 363
     private var page : int = 1
     private var pageSize : int = 500
-    private var extras : String = "date_taken"
+    private var extras : String = "date_taken, original_format"
      
        
     //--------------------------------------------------------------------------
@@ -206,7 +207,8 @@ public class Application extends Sprite
 		// container
 		viewport = new ZoomViewport()
 		viewport.minZoom = DEFAULT_MINIMUM_ZOOM
-        viewport.view = view
+		viewport.maxZoom = DEFAULT_MAXIMUM_ZOOM
+        viewport.content = view
         
         // navigator
         navigator = new ZoomNavigator()

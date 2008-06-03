@@ -49,7 +49,7 @@ public class tandem extends Sprite
 		application = new Application()
 		
 		// enable view source
-        ViewSource.addMenuItem( application, "source/index.html" )
+        ViewSource.addMenuItem( application, "source/" )
 
         // go, go, go!
         addChild( application )

@@ -57,7 +57,7 @@ public class ZoomTransformationController extends AbstractZoomController
     //
     //--------------------------------------------------------------------------
     
-    public var duration : Number = 0.4
+    public var duration : Number = 0.5
     
     //--------------------------------------------------------------------------
     //

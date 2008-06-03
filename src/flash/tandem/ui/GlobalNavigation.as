@@ -24,7 +24,7 @@ import flash.display.MovieClip;
 import flash.display.Sprite;
 import flash.display.StageDisplayState;
 import flash.events.Event;
-import flash.events.KeyboardEvent;
+import flash.events.FocusEvent;
 import flash.events.MouseEvent;
 
 public class GlobalNavigation extends Sprite
@@ -51,6 +51,7 @@ public class GlobalNavigation extends Sprite
     public var logo : Sprite
     public var background : Sprite
     public var fullScreenButton : MovieClip
+    public var searchInput : SearchInput
 	
     //--------------------------------------------------------------------------
     //
@@ -61,9 +62,8 @@ public class GlobalNavigation extends Sprite
 	private function addedToStageHandler( event : Event ) : void
 	{
 		stage.addEventListener( Event.RESIZE, resizeHandler )
-		
 		fullScreenButton.addEventListener( MouseEvent.CLICK, fullScreenClickHandler )
-	 	
+			 	
 	 	// layout
 	 	updateDisplayList()
 	}
@@ -77,7 +77,7 @@ public class GlobalNavigation extends Sprite
     {
         toggleFullScreen()
     }
-	
+    
     //--------------------------------------------------------------------------
     //
     //  Methods
@@ -87,6 +87,9 @@ public class GlobalNavigation extends Sprite
 	private function updateDisplayList() : void
 	{	
 		background.width = stage.stageWidth
+		
+		searchInput.x = ( stage.stageWidth - searchInput.width ) / 2
+		searchInput.y = ( height - searchInput.height ) / 2
 		
 		fullScreenButton.x = stage.stageWidth - 40 /* fullScreenButton.width */ - 6
 		fullScreenButton.y = 6
