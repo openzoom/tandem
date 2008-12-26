@@ -39,7 +39,7 @@ public class SearchInput extends Sprite
     
     private const PROMPT : String = "Search"
     private const PROMPT_FORMAT : TextFormat = new TextFormat( null, null, 0x666666, null, true )
-    private const INPUT_FORMAT : TextFormat = new TextFormat( null, null, 0xCCCCCC, null, false )
+    private const INPUT_FORMAT : TextFormat  = new TextFormat( null, null, 0x999999, null, false )
     
     //--------------------------------------------------------------------------
     //

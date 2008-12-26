@@ -24,7 +24,7 @@ import com.adobe.viewsource.ViewSource;
 
 import flash.display.Sprite;
 
-import org.hasseg.externalMouseWheel.ExternalMouseWheelSupport;
+import org.openzoom.flash.utils.ExternalMouseWheel;
 
 import tandem.core.Application;
 
@@ -43,7 +43,7 @@ public class tandem extends Sprite
 	public function tandem()
 	{
         // enable Mac OS X mouse wheel support
-        ExternalMouseWheelSupport.getInstance( stage )
+        ExternalMouseWheel.initialize( stage )
 
 		// instantiate tandem
 		application = new Application()

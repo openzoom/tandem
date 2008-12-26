@@ -20,8 +20,6 @@
 package tandem.ui.views.renderers
 {
 	
-import br.com.stimuli.loading.BulkLoader;
-
 import caurina.transitions.Tweener;
 
 import com.adobe.webapis.flickr.Photo;
@@ -30,10 +28,13 @@ import flash.display.Bitmap;
 import flash.display.Graphics;
 import flash.display.Shape;
 import flash.display.Sprite;
-import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.net.URLRequest;
 import flash.net.navigateToURL;
+
+import org.openzoom.flash.events.LoadingItemEvent;
+import org.openzoom.flash.net.ILoadingItem;
+import org.openzoom.flash.net.LoadingQueue;
 
 import tandem.core.IDataRenderer;
 import tandem.events.TandemEvent;
@@ -153,7 +154,8 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
     //  loader
     //----------------------------------
     
-    public var loader : BulkLoader
+//    public var loader : BulkLoader
+    public var loader : LoadingQueue
     
     //--------------------------------------------------------------------------
     //
@@ -163,10 +165,13 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
     
     private function load( dimension : String = PhotoDimension.MEDIUM ) : void
     {
-        url = PhotoUtil.getPhotoURL( Photo( data ), dimension ) 
-        loader.add( url, { priority: priority++ } )
-        loader.get( url ).addEventListener( Event.COMPLETE, loadCompleteHandler, false, 0, true )
-        loader.start()
+        url = PhotoUtil.getPhotoURL( Photo( data ), dimension )
+        var item : ILoadingItem = loader.addItem( url, Bitmap )
+            item.addEventListener( LoadingItemEvent.COMPLETE,
+                                   loadCompleteHandler )
+//        loader.add( url, { priority: priority++ } )
+//        loader.get( url ).addEventListener( Event.COMPLETE, loadCompleteHandler, false, 0, true )
+//        loader.start()
     }
     
     private function unload() : void
@@ -192,15 +197,20 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
     //
     //--------------------------------------------------------------------------
     
-	private function loadCompleteHandler( event : Event ) : void
+	private function loadCompleteHandler( event : LoadingItemEvent ) : void
 	{		
-		if( loader.get( url ) )
-            loader.get( url ).removeEventListener( Event.COMPLETE, loadCompleteHandler )
-            
+//		if( loader.get( url ) )
+//            loader.get( url ).removeEventListener( Event.COMPLETE, loadCompleteHandler )
+//            
+//        if( image )			
+//		    imageHolder = image
+//
+//	    image = loader.getBitmap( url, true )
+		
         if( image )			
 		    imageHolder = image
-
-	    image = loader.getBitmap( url, true )
+		    
+		image = event.data as Bitmap
 		
 		
 		// FIXME: NPE prevention

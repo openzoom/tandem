@@ -20,8 +20,6 @@
 package tandem.ui.views
 {
 
-import br.com.stimuli.loading.BulkLoader;
-
 import caurina.transitions.Tweener;
 
 import flash.display.Graphics;
@@ -31,6 +29,8 @@ import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.geom.Rectangle;
 import flash.utils.Timer;
+
+import org.openzoom.flash.net.LoadingQueue;
 
 import tandem.core.zooming.IZoomModel;
 import tandem.core.zooming.IZoomable;
@@ -76,7 +76,8 @@ public class StreamView extends Sprite implements IZoomable
 	private var spacing : Number = 200
 	private var padding : Number = 1500
 	
-	private var loader : BulkLoader
+//	private var loader : BulkLoader
+	private var loader : LoadingQueue
 	private var renderers : Array /* of PhotoRenderer */ = []
 	private var timer : Timer
 	
@@ -234,10 +235,11 @@ public class StreamView extends Sprite implements IZoomable
     
     private function createLoader() : void
     {   
-        loader = new BulkLoader( "photoLoader" + Math.random().toString() )
-        
-        // TODO
-        loader.logLevel = BulkLoader.LOG_ERRORS
+    	loader = new LoadingQueue()
+//        loader = new BulkLoader( "photoLoader" + Math.random().toString() )
+//        
+//        // TODO
+//        loader.logLevel = BulkLoader.LOG_ERRORS
     }
 }
 
