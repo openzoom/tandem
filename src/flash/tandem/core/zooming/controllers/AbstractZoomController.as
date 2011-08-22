@@ -29,7 +29,7 @@ import tandem.core.zooming.IZoomModel;
 import tandem.core.zooming.ZoomModelEvent;
 
 /* abstract */ public class AbstractZoomController implements IZoomController
-{	
+{
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -38,111 +38,111 @@ import tandem.core.zooming.ZoomModelEvent;
     /**
     * Constructor.
     */
-	public function AbstractZoomController() : void
-	{
-		// AbstractZoomController is an abstract class. 
+    public function AbstractZoomController() : void
+    {
+        // AbstractZoomController is an abstract class.
         // Please extend it with your own, concrete Controller.
-	}
-		
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Properties
     //
     //--------------------------------------------------------------------------
-    
+
     //----------------------------------
     //  view
     //----------------------------------
-    
+
     private var _view : DisplayObject
-    
-	public function get view() : DisplayObject
-	{
-		return _view
-	}
-	
-	public function set view( value : DisplayObject ) : void
-	{	
-		if( view == value )
-		    return	 
-		
-		_view = value
-	    
-	    if( view == null )
-	    {
-	       view_removedFromStageHandler( null )
-	       return
-	    }
-		
+
+    public function get view() : DisplayObject
+    {
+        return _view
+    }
+
+    public function set view( value : DisplayObject ) : void
+    {
+        if( view == value )
+            return
+
+        _view = value
+
+        if( view == null )
+        {
+           view_removedFromStageHandler( null )
+           return
+        }
+
         view.addEventListener( Event.ADDED_TO_STAGE, view_addedToStageHandler,
                                false, 0, true )
         view.addEventListener( Event.REMOVED_FROM_STAGE, view_removedFromStageHandler,
                                false, 0, true )
-        
+
         if( view.stage )
-            view_addedToStageHandler( null )			
-        
+            view_addedToStageHandler( null )
+
         model.viewAspectRatio = view.width / view.height
-	}
-    
+    }
+
     //----------------------------------
     //  viewport
     //----------------------------------
-    
+
     private var _viewport : Rectangle = new Rectangle( 0, 0, 100, 100 )
-    
+
     public function get viewport() : Rectangle
     {
-    	return _viewport.clone()
+        return _viewport.clone()
     }
-        
+
     public function set viewport( value : Rectangle ) : void
     {
         _viewport = value
-        
+
         if( model )
             model.viewportAspectRatio = _viewport.width / _viewport.height
     }
-    
+
     //----------------------------------
     //  model
     //----------------------------------
-    
+
     private var _model : IZoomModel
-    
-	public function get model() : IZoomModel
-	{
-		return _model
-	}
-	
-	public function set model( value : IZoomModel ) : void
-	{
-		if( model == value )
-		    return
-		 
-		_model = value
-		
-		if( model )
+
+    public function get model() : IZoomModel
+    {
+        return _model
+    }
+
+    public function set model( value : IZoomModel ) : void
+    {
+        if( model == value )
+            return
+
+        _model = value
+
+        if( model )
             model.addEventListener( ZoomModelEvent.CHANGE, model_changeHandler, false, 0, true )
-	}
-	
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Abstract Event Handlers
     //
     //--------------------------------------------------------------------------
-    
+
     protected function view_addedToStageHandler( event : Event ) : void
     {
     }
-    
+
     protected function view_removedFromStageHandler( event : Event ) : void
     {
     }
-	
-	protected function model_changeHandler( event : ZoomModelEvent ) : void
-	{
-	}
+
+    protected function model_changeHandler( event : ZoomModelEvent ) : void
+    {
+    }
 }
 
 }

@@ -51,7 +51,7 @@ import tandem.ui.ZoomViewport;
 import tandem.ui.views.StreamView;
 
 public class Application extends Sprite
-{	
+{
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -60,17 +60,17 @@ public class Application extends Sprite
     /**
     * Constructor.
     */
-	public function Application()
-	{
-		addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler, false, 0, true )
+    public function Application()
+    {
+        addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler, false, 0, true )
     }
-       
+
     //--------------------------------------------------------------------------
     //
     //  Class Constants
     //
-    //--------------------------------------------------------------------------    
-    
+    //--------------------------------------------------------------------------
+
     private const DEFAULT_USER_ADDRESS : String = "gasi"
     private const DEFAULT_USER_ID : String = "72389028@N00"
     private const DEFAULT_MINIMUM_ZOOM : Number = 0.25//0.5
@@ -81,27 +81,27 @@ public class Application extends Sprite
     //
     //  Children
     //
-    //--------------------------------------------------------------------------    
-    
+    //--------------------------------------------------------------------------
+
     private var globalNavigation : GlobalNavigation
     private var memoryIndicator : MemoryIndicator
     private var notificationOverlay : NotificationOverlay
     private var keyboardNavigationButton : KeyboardNavigationButton
     private var timeline : Timeline
-    
+
     private var viewport : ZoomViewport
-    private var navigator : ZoomNavigator 
-    
+    private var navigator : ZoomNavigator
+
     private var view : DisplayObject
     private var initialized : Boolean = false
-    
+
 
     //--------------------------------------------------------------------------
     //
     //  Variables
     //
     //--------------------------------------------------------------------------
-    
+
     private var model : ApplicationModel = ApplicationModel.getInstance()
     private var completed : Boolean = false
 
@@ -109,14 +109,14 @@ public class Application extends Sprite
     private var page : int = 1
     private var pageSize : int = 500
     private var extras : String = "date_taken, original_format"
-     
-       
+
+
     //--------------------------------------------------------------------------
     //
     //  Event Handler: Stage
     //
     //--------------------------------------------------------------------------
-    
+
     private function addedToStageHandler( event : Event ) : void
     {
         // Code in constructor is interpreted by
@@ -124,29 +124,29 @@ public class Application extends Sprite
         // outside, so it can be processed by the JIT compiler
         initialize()
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Initialization
     //
     //--------------------------------------------------------------------------
-    
+
     private function initialize() : void
     {
         stage.align = StageAlign.TOP_LEFT
         stage.scaleMode = StageScaleMode.NO_SCALE
-        
+
         initializeLibraries()
         initializeSecurity()
         registerListeners()
         createChildren()
         updateDisplayList()
-                  
+
         model.service = new FlickrService( model.API_KEY )
         model.service.addEventListener( FlickrResultEvent.PEOPLE_GET_PUBLIC_PHOTOS,
                                         getPublicPhotosHandler )
     }
-    
+
     private function initializeSecurity() : void
     {
         // TODO: Smells bad… =(
@@ -159,27 +159,27 @@ public class Application extends Sprite
 
         Security.loadPolicyFile( "http://l.yimg.com/crossdomain.xml" )
     }
-    
+
     private function initializeLibraries() : void
     {
         // Tweener
         ColorShortcuts.init()
     }
-    
+
     private function registerListeners() : void
     {
         stage.addEventListener( Event.RESIZE, resizeHandler )
         addEventListener( TandemEvent.APPLICATION_COMPLETE, applicationCompleteHandler )
-        
+
         SWFAddress.addEventListener( SWFAddressEvent.CHANGE, swfAddressChangeHandler )
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  User Interface
     //
     //--------------------------------------------------------------------------
-    
+
     private function createChildren() : void
     {
         createTimeline()
@@ -188,40 +188,40 @@ public class Application extends Sprite
         createNotificationOverlay()
         createKeyboardNavigationButton()
     }
-    
-	private function createViewport() : void
-	{
-		completed = false
-		model.photos = []
-		
-		if( view )
-		    removeChild( view )
-		  
-		if( navigator )
-		    removeChild( navigator )
-		
-		// view
-		initialized = false
+
+    private function createViewport() : void
+    {
+        completed = false
+        model.photos = []
+
+        if( view )
+            removeChild( view )
+
+        if( navigator )
+            removeChild( navigator )
+
+        // view
+        initialized = false
         view = new StreamView()
         view.alpha = 0
-        
-		// container
-		viewport = new ZoomViewport()
-		viewport.minZoom = DEFAULT_MINIMUM_ZOOM
-		viewport.maxZoom = DEFAULT_MAXIMUM_ZOOM
+
+        // container
+        viewport = new ZoomViewport()
+        viewport.minZoom = DEFAULT_MINIMUM_ZOOM
+        viewport.maxZoom = DEFAULT_MAXIMUM_ZOOM
         viewport.content = view
-        
+
         // navigator
         navigator = new ZoomNavigator()
         navigator.model = viewport
         navigator.alpha = 0
-        
+
         // add children to display list
         addChildAt( viewport, 0 )
         addChildAt( view, 1 )
         addChildAt( navigator, 2 )
-        
-        
+
+
         // fade in notification overlay
         Tweener.addTween(
                             notificationOverlay,
@@ -230,41 +230,41 @@ public class Application extends Sprite
                                 time: 1
                             }
                         )
-        
-        
+
+
         // call service
         model.service.people.getPublicPhotos( model.user.nsid, extras,
                                               Math.min( pageSize, numPhotos ),
                                               page )
-        
+
         // initial layout
         updateDisplayList()
     }
-		
-	private function createTimeline() : void
-	{
-		//timeline = new TimelineComponent()
-		//addChild( timeline )
-	}
-		
-	private function createGlobalNavigation() : void
-	{
-		globalNavigation = new GlobalNavigationComponent()
-		addChild( globalNavigation )
-	}
-    
+
+    private function createTimeline() : void
+    {
+        //timeline = new TimelineComponent()
+        //addChild( timeline )
+    }
+
+    private function createGlobalNavigation() : void
+    {
+        globalNavigation = new GlobalNavigationComponent()
+        addChild( globalNavigation )
+    }
+
     private function createMemoryIndicator() : void
     {
         memoryIndicator = new MemoryIndicatorComponent()
         addChild( memoryIndicator )
     }
-    
+
     private function createNotificationOverlay() : void
     {
         notificationOverlay = new NotificationOverlayComponent()
         notificationOverlay.alpha = 0
         addChild( notificationOverlay )
-        
+
         // fade in notification overlay
         Tweener.addTween(
                             notificationOverlay,
@@ -275,13 +275,13 @@ public class Application extends Sprite
                             }
                         )
     }
-    
+
     private function createKeyboardNavigationButton() : void
     {
         keyboardNavigationButton = new KeyboardNavigationButtonComponent()
         keyboardNavigationButton.alpha = 0
         addChild( keyboardNavigationButton )
-        
+
         Tweener.addTween(
                             keyboardNavigationButton,
                             {
@@ -291,64 +291,64 @@ public class Application extends Sprite
                             }
                         )
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  SWFAdress
     //
     //--------------------------------------------------------------------------
-    
+
     private function swfAddressChangeHandler( event : SWFAddressEvent ) : void
-    {    
+    {
         var user : String
         var action : String = SWFAddress.getPathNames()[ 0 ]
         var flickrNSIDPattern : RegExp = /[0-9]*@N[0-9]*/
-        
+
         if( action == "photos" )
         {
-	        // Long URL, e.g. http://flickr.com/photos/gasi
-	        // or http://flickr.com/photos/72389028@N00
-        	user = SWFAddress.getPathNames()[ 1 ]
+            // Long URL, e.g. http://flickr.com/photos/gasi
+            // or http://flickr.com/photos/72389028@N00
+            user = SWFAddress.getPathNames()[ 1 ]
         }
         else
         {
-	        // Short URL, e.g. http://flickr.com/gasi
-        	user = SWFAddress.getPathNames()[ 0 ]
+            // Short URL, e.g. http://flickr.com/gasi
+            user = SWFAddress.getPathNames()[ 0 ]
         }
-        
+
         if( user == null )
         {
-			// Default user
+            // Default user
             SWFAddress.setValue( "photos/" + DEFAULT_USER_ADDRESS + "/" )
-        } 
+        }
         else if( flickrNSIDPattern.test( user ) )
         {
-        	// Look up Flickr NSID, e.g. 72389028@N00
+            // Look up Flickr NSID, e.g. 72389028@N00
             model.service.people.getInfo( user )
             model.service.addEventListener( FlickrResultEvent.PEOPLE_GET_INFO, getInfoHandler )
         }
         else
         {
-	        // Look up Flickr URL
-    		model.service.urls.lookupUser( "http://flickr.com/photos/" + user + "/" )
-    		model.service.addEventListener( FlickrResultEvent.URLS_LOOKUP_USER, lookupUserHandler )
+            // Look up Flickr URL
+            model.service.urls.lookupUser( "http://flickr.com/photos/" + user + "/" )
+            model.service.addEventListener( FlickrResultEvent.URLS_LOOKUP_USER, lookupUserHandler )
         }
-	}
-	
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers: Application
     //
     //--------------------------------------------------------------------------
-            
+
     private function resizeHandler( event : Event ) : void
     {
         updateDisplayList()
     }
-    
+
     private function applicationCompleteHandler( event : Event ) : void
     {
-    	// fade in view
+        // fade in view
         Tweener.addTween(
                              view,
                              {
@@ -356,7 +356,7 @@ public class Application extends Sprite
                                 time: 5
                              }
                         )
-        
+
         // fade in navigator
         Tweener.addTween(
                            navigator,
@@ -366,7 +366,7 @@ public class Application extends Sprite
                                delay: 2
                            }
                         )
-        
+
         // fade out notification
         Tweener.addTween(
                            notificationOverlay,
@@ -376,57 +376,57 @@ public class Application extends Sprite
                                delay: 1.8
                            }
                         )
-                         
+
        updateDisplayList()
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers: Service
     //
     //--------------------------------------------------------------------------
-    
+
     private function getPublicPhotosHandler( event : FlickrResultEvent ) : void
     {
         if( event.success )
-        {                
+        {
             var result : PagedPhotoList = PagedPhotoList( event.data.photos )
-            
+
             // add result data to view
             if( view is StreamView )
-            {            	
-            	result.photos.forEach(
+            {
+                result.photos.forEach(
                                             function( item : *,
                                                      ...ignored ) : void
                                             {
-                                            	model.photos.push( item )
-                                                StreamView( view ).addItem( item )                
+                                                model.photos.push( item )
+                                                StreamView( view ).addItem( item )
                                             }
                                      )
-            	
+
             }
-            
+
             // we're done
             if( model.photos.length >= Math.min( numPhotos, result.total ) && !completed )
             {
                 completed = true
             }
-            
+
             // fetch more data
             if( result.page < result.pages && !completed )
             {
                 page++
                 model.service.people.getPublicPhotos( model.user.nsid, extras, pageSize, page )
             }
-            
+
             if( !initialized )
             {
                 initialized = true
-                dispatchEvent( new TandemEvent( TandemEvent.APPLICATION_COMPLETE ) )                
+                dispatchEvent( new TandemEvent( TandemEvent.APPLICATION_COMPLETE ) )
             }
-        }           
+        }
     }
-    
+
     private function lookupUserHandler( event : FlickrResultEvent ) : void
     {
         if( event.success )
@@ -441,7 +441,7 @@ public class Application extends Sprite
             SWFAddress.setValue( "photos/" + DEFAULT_USER_ADDRESS + "/" )
         }
     }
-    
+
     private function getInfoHandler( event : FlickrResultEvent ) : void
     {
         if( event.success )
@@ -456,22 +456,22 @@ public class Application extends Sprite
             SWFAddress.setValue( "photos/" + DEFAULT_USER_ADDRESS + "/" )
         }
     }
-	
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Layout
     //
     //--------------------------------------------------------------------------
-    
-	private function updateDisplayList() : void
-	{
+
+    private function updateDisplayList() : void
+    {
         // Navigation
         if( globalNavigation )
         {
             globalNavigation.x = 0
             globalNavigation.y = 0
         }
-		
+
         // Viewport
         if( viewport )
         {
@@ -480,42 +480,42 @@ public class Application extends Sprite
             viewport.width = stage.stageWidth
             viewport.height = stage.stageHeight
         }
-        		
-		// Navigator
+
+        // Navigator
         if( navigator )
         {
             navigator.x = stage.stageWidth - navigator.width - 12
             navigator.y = globalNavigation ? globalNavigation.height + 12 : 12
         }
-	 
-		// Timeline
-		if( timeline )
-		{
-			timeline.width = stage.stageWidth
-			timeline.y = stage.stageHeight - timeline.height		
-		}
-        
+
+        // Timeline
+        if( timeline )
+        {
+            timeline.width = stage.stageWidth
+            timeline.y = stage.stageHeight - timeline.height
+        }
+
         // Memory Indicator
         if( memoryIndicator )
         {
             memoryIndicator.x = stage.stageWidth - memoryIndicator.width - 10
             memoryIndicator.y = stage.stageHeight - memoryIndicator.height - 10
         }
-        
+
         // Notification Overlay
         if( notificationOverlay )
         {
             notificationOverlay.x = ( stage.stageWidth - notificationOverlay.width ) / 2
             notificationOverlay.y = ( stage.stageHeight - notificationOverlay.height ) / 2
         }
-        
+
         // Keyboard Navigation Button
         if( keyboardNavigationButton )
         {
             keyboardNavigationButton.x = ( stage.stageWidth - keyboardNavigationButton.width ) / 2
             keyboardNavigationButton.y = stage.stageHeight - keyboardNavigationButton.height - 10
         }
-	}
+    }
 }
 
 }

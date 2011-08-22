@@ -28,7 +28,7 @@ public final class PhotoDimension
     public static const MEDIUM : String = "medium"
     public static const LARGE : String = "large"
     public static const ORIGINAL : String = "original"
-    
+
     public static const SQUARE_SUFFIX : String = "_s"
     public static const THUMBNAIL_SUFFIX : String = "_t"
     public static const SMALL_SUFFIX : String = "_m"

@@ -21,68 +21,68 @@ package tandem.util
 {
 
 import com.adobe.webapis.flickr.Photo;
-	
-	
+
+
 public class PhotoUtil
-{	
-	public static function getPhotoURL( photo : Photo,
-	                                    dimension : String ) : String
-	{
-		var url : String
-		
-		if( dimension == PhotoDimension.ORIGINAL )
-		{
-            url = "http://farm" + photo.farmId + ".static.flickr.com/" 
-                   + photo.server + "/" + photo.id + "_" + photo.originalSecret 
-            	   + getPhotoDimensionSuffix( dimension ) + "."
-            	   + photo.originalFormat
-		}
-		else
-		{
-		    url = "http://farm" + photo.farmId + ".static.flickr.com/" 
-	                + photo.server + "/" + photo.id + "_" + photo.secret
-	                + getPhotoDimensionSuffix( dimension ) + ".jpg"
-		}
-		
-		return url 
-	}
-	
-	public static function getPhotoDimensionSuffix( dimension : String ) : String
-	{
-		var suffix : String
-		
-		switch( dimension )
-		{
+{
+    public static function getPhotoURL( photo : Photo,
+                                        dimension : String ) : String
+    {
+        var url : String
+
+        if( dimension == PhotoDimension.ORIGINAL )
+        {
+            url = "http://farm" + photo.farmId + ".static.flickr.com/"
+                   + photo.server + "/" + photo.id + "_" + photo.originalSecret
+                   + getPhotoDimensionSuffix( dimension ) + "."
+                   + photo.originalFormat
+        }
+        else
+        {
+            url = "http://farm" + photo.farmId + ".static.flickr.com/"
+                    + photo.server + "/" + photo.id + "_" + photo.secret
+                    + getPhotoDimensionSuffix( dimension ) + ".jpg"
+        }
+
+        return url
+    }
+
+    public static function getPhotoDimensionSuffix( dimension : String ) : String
+    {
+        var suffix : String
+
+        switch( dimension )
+        {
             case PhotoDimension.SQUARE:
                  suffix = PhotoDimension.SQUARE_SUFFIX
                  break
-                 
+
             case PhotoDimension.THUMBNAIL:
                  suffix = PhotoDimension.THUMBNAIL_SUFFIX
                  break
-                 
+
             case PhotoDimension.SMALL:
                  suffix = PhotoDimension.SMALL_SUFFIX
                  break
-                 
+
             case PhotoDimension.MEDIUM:
                  suffix = PhotoDimension.MEDIUM_SUFFIX
                  break
-                 
+
             case PhotoDimension.LARGE:
                  suffix = PhotoDimension.LARGE_SUFFIX
                  break
-                 
+
             case PhotoDimension.ORIGINAL:
                  suffix = PhotoDimension.ORIGINAL_SUFFIX
                  break
-                 
+
             default:
                 suffix = PhotoDimension.MEDIUM_SUFFIX
-		}
-		
-		return suffix
-	}
+        }
+
+        return suffix
+    }
 }
-	
+
 }

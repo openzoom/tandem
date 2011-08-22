@@ -19,12 +19,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 package tandem.core.zooming
 {
-	
+
 public interface IZoomable
 {
-	//----------------------------------
+    //----------------------------------
     //  model
-    //----------------------------------    
+    //----------------------------------
     function get model() : IZoomModel
     function set model( value : IZoomModel ) : void
 }

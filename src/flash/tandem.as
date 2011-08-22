@@ -33,35 +33,35 @@ import tandem.core.Application;
 */
 [SWF(width="900", height="600", frameRate="60", backgroundColor="#222222")]
 public class tandem extends Sprite
-{    
+{
     //--------------------------------------------------------------------------
     //
     //  Constructor
     //
     //--------------------------------------------------------------------------
-    	
-	public function tandem()
-	{
+
+    public function tandem()
+    {
         // enable Mac OS X mouse wheel support
         ExternalMouseWheel.initialize( stage )
 
-		// instantiate tandem
-		application = new Application()
-		
-		// enable view source
+        // instantiate tandem
+        application = new Application()
+
+        // enable view source
         ViewSource.addMenuItem( application, "source/" )
 
         // go, go, go!
         addChild( application )
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Children
     //
-    //--------------------------------------------------------------------------    
-    
+    //--------------------------------------------------------------------------
+
     private var application : Application
 }
-	
+
 }

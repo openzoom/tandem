@@ -19,7 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 package tandem.ui.views.renderers
 {
-	
+
 import caurina.transitions.Tweener;
 
 import com.adobe.webapis.flickr.Photo;
@@ -52,117 +52,117 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
     /**
      *  Constructor.
      */
-	public function PhotoRenderer()
-	{
-		interactive = false
-		createBackground()
-	}
-	
+    public function PhotoRenderer()
+    {
+        interactive = false
+        createBackground()
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Class Constants
     //
     //--------------------------------------------------------------------------
-    
-	public static const DEFAULT_WIDTH : Number = 1000
-	public static const DEFAULT_HEIGHT : Number = 1000
-	public static const BORDER_THICKNESS : Number = 24
-	
-	public static const NONE : String = "none"
-	public static const LOW : String = "low"
-	public static const MEDIUM : String = "medium"
-	public static const HIGH : String = "high"
+
+    public static const DEFAULT_WIDTH : Number = 1000
+    public static const DEFAULT_HEIGHT : Number = 1000
+    public static const BORDER_THICKNESS : Number = 24
+
+    public static const NONE : String = "none"
+    public static const LOW : String = "low"
+    public static const MEDIUM : String = "medium"
+    public static const HIGH : String = "high"
 
     //--------------------------------------------------------------------------
     //
     //  Variables
     //
     //--------------------------------------------------------------------------
-    
-	private var background : Shape
-	private var backgroundColor : uint
-	
-	private var url : String
-	
-	private var image : Bitmap
-	private var imageHolder : Bitmap
-	
+
+    private var background : Shape
+    private var backgroundColor : uint
+
+    private var url : String
+
+    private var image : Bitmap
+    private var imageHolder : Bitmap
+
     private static var priority : uint = 1000
-    
+
     //--------------------------------------------------------------------------
     //
     //  Properties
     //
     //--------------------------------------------------------------------------
-    
+
     //----------------------------------
     //  displayQuality
     //----------------------------------
-    
+
     private var _displayQuality : String
-    
+
     public function get displayQuality() : String
     {
         return _displayQuality
     }
-    
+
     public function set displayQuality( value : String ) : void
     {
-    	if( _displayQuality == value )
-    	   return
-    	   
+        if( _displayQuality == value )
+           return
+
         _displayQuality = value
-        
+
         switch( displayQuality )
         {
-        	case LOW:
-				load( PhotoDimension.THUMBNAIL )
-                break        		
-        	
+            case LOW:
+                load( PhotoDimension.THUMBNAIL )
+                break
+
             case MEDIUM:
                 load( PhotoDimension.MEDIUM )
                 break
-               
+
             case HIGH:
                load( PhotoDimension.LARGE )
                break
-               
+
             case NONE:
                unload()
                break
         }
     }
-    
+
     //----------------------------------
     //  data
     //----------------------------------
-    
+
     private var _data : Photo
-    
+
     public function get data() : Object
     {
         return _data
     }
-    
+
     public function set data( value : Object ) : void
     {
         _data = Photo( value )
         dispatchEvent( new TandemEvent( TandemEvent.DATA_CHANGE ) )
     }
-    
+
     //----------------------------------
     //  loader
     //----------------------------------
-    
+
 //    public var loader : BulkLoader
     public var loader : LoadingQueue
-    
+
     //--------------------------------------------------------------------------
     //
     //  Methods
     //
     //--------------------------------------------------------------------------
-    
+
     private function load( dimension : String = PhotoDimension.MEDIUM ) : void
     {
         url = PhotoUtil.getPhotoURL( Photo( data ), dimension )
@@ -173,69 +173,69 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
 //        loader.get( url ).addEventListener( Event.COMPLETE, loadCompleteHandler, false, 0, true )
 //        loader.start()
     }
-    
+
     private function unload() : void
-    {    	
+    {
         if( image && contains( image ) )
             removeChild( image )
-    	
+
         if( image )
             image = null
-       
+
         Tweener.addTween(
-						    background,
-						    {
+                            background,
+                            {
                                 _color: backgroundColor,
                                 time: 0
-						    }
-		                )             
+                            }
+                        )
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers
     //
     //--------------------------------------------------------------------------
-    
-	private function loadCompleteHandler( event : LoadingItemEvent ) : void
-	{		
-//		if( loader.get( url ) )
+
+    private function loadCompleteHandler( event : LoadingItemEvent ) : void
+    {
+//      if( loader.get( url ) )
 //            loader.get( url ).removeEventListener( Event.COMPLETE, loadCompleteHandler )
-//            
-//        if( image )			
-//		    imageHolder = image
 //
-//	    image = loader.getBitmap( url, true )
-		
-        if( image )			
-		    imageHolder = image
-		    
-		image = event.data as Bitmap
-		
-		
-		// FIXME: NPE prevention
-		if( !image )
+//        if( image )
+//          imageHolder = image
+//
+//      image = loader.getBitmap( url, true )
+
+        if( image )
+            imageHolder = image
+
+        image = event.data as Bitmap
+
+
+        // FIXME: NPE prevention
+        if( !image )
             return
-		
+
         if( displayQuality == LOW || displayQuality == NONE )
             image.smoothing = false
-	    else
-            image.smoothing = true    
-		
-		var scale : Number = Math.min( DEFAULT_WIDTH / image.width,
+        else
+            image.smoothing = true
+
+        var scale : Number = Math.min( DEFAULT_WIDTH / image.width,
                                        DEFAULT_HEIGHT / image.height )
-                                       
+
         image.scaleX  = image.scaleY = scale
-        
+
         image.x = ( DEFAULT_WIDTH - image.width ) / 2
         image.y = ( DEFAULT_HEIGHT - image.height ) / 2
-        
+
         image.alpha = 0
-        
-    	addChild( image )
-    	
-        
-        // background      
+
+        addChild( image )
+
+
+        // background
         Tweener.addTween(
                            background,
                            {
@@ -247,7 +247,7 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
                                time: 0.8
                            }
                         )
-                        
+
         // image
         Tweener.addTween(
                            image,
@@ -257,54 +257,54 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
                                onComplete: removeImageHolder
                            }
                         )
-                        
+
         // Create link to orignal photo on Flickr
         if( displayQuality != LOW && displayQuality != NONE )
         {
             interactive = true
-        	addEventListener( MouseEvent.DOUBLE_CLICK, doubleClickHandler )
+            addEventListener( MouseEvent.DOUBLE_CLICK, doubleClickHandler )
         }
         else
         {
             if( hasEventListener( MouseEvent.DOUBLE_CLICK ) )
-                removeEventListener( MouseEvent.DOUBLE_CLICK, doubleClickHandler )        	
-        }                  
- 	}
- 	
- 	private function doubleClickHandler( event : MouseEvent ) : void
- 	{
- 		// TODO: Clean up
- 		var model : ApplicationModel = ApplicationModel.getInstance()
- 		
- 		var url : String
- 		var photo : Photo = Photo( data )
- 		
- 		if( model.user.url )
+                removeEventListener( MouseEvent.DOUBLE_CLICK, doubleClickHandler )
+        }
+    }
+
+    private function doubleClickHandler( event : MouseEvent ) : void
+    {
+        // TODO: Clean up
+        var model : ApplicationModel = ApplicationModel.getInstance()
+
+        var url : String
+        var photo : Photo = Photo( data )
+
+        if( model.user.url )
             url = model.user.url + photo.id
         else
             url = "http://flickr.com/photos/" + model.user.nsid + "/" + photo.id
- 		
- 		var request : URLRequest = new URLRequest( url )
- 		navigateToURL( request, "_blank" )
- 	}
- 	
+
+        var request : URLRequest = new URLRequest( url )
+        navigateToURL( request, "_blank" )
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Helper
     //
     //--------------------------------------------------------------------------
-	
-	private function createBackground() : void
-	{
+
+    private function createBackground() : void
+    {
         background = new Shape()
-        
+
         var g : Graphics = background.graphics
-        
+
         var seed : Number = 0.2 + ( Math.random() * 0.6 )
         backgroundColor = seed * 0xFF << 16 | seed * 0xFF << 8 | seed * 0xFF
-        
+
         g.beginFill( backgroundColor )
-        
+
         if( Math.random() > 0.5 )
         {
             g.drawRect( 0, 0, DEFAULT_WIDTH, DEFAULT_HEIGHT * 0.75 )
@@ -317,10 +317,10 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
         }
 
         g.endFill()
-        
+
         addChildAt( background, 0 )
-	}
-	
+    }
+
     private function removeImageHolder() : void
     {
         if( imageHolder && contains( imageHolder ) )
@@ -329,18 +329,18 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
             imageHolder = null
         }
     }
-	
-	private function get interactive() : Boolean
-	{
-		return mouseChildren
-	}
-	
-	private function set interactive( value : Boolean ) : void
-	{
+
+    private function get interactive() : Boolean
+    {
+        return mouseChildren
+    }
+
+    private function set interactive( value : Boolean ) : void
+    {
         //buttonMode = value
         mouseChildren = !value
         doubleClickEnabled = value
-	}
+    }
 }
 
 }

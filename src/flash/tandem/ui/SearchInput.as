@@ -30,17 +30,17 @@ import flash.text.TextField;
 import flash.text.TextFormat;
 
 public class SearchInput extends Sprite
-{	
-	//--------------------------------------------------------------------------
+{
+    //--------------------------------------------------------------------------
     //
     //  Class Constants
     //
     //--------------------------------------------------------------------------
-    
+
     private const PROMPT : String = "Search"
     private const PROMPT_FORMAT : TextFormat = new TextFormat( null, null, 0x666666, null, true )
     private const INPUT_FORMAT : TextFormat  = new TextFormat( null, null, 0x999999, null, false )
-    
+
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -49,85 +49,85 @@ public class SearchInput extends Sprite
     /**
      *  Constructor.
      */
-	public function SearchInput()
-	{
+    public function SearchInput()
+    {
         input.text = PROMPT
         hideClearButton()
-        
+
         addEventListener( KeyboardEvent.KEY_DOWN, keyDownHandler )
         addEventListener( KeyboardEvent.KEY_UP, keyUpHandler )
-        
+
         input.addEventListener( FocusEvent.FOCUS_IN, input_focusInHandler )
         input.addEventListener( FocusEvent.FOCUS_OUT, input_focusOutHandler )
-        
+
         clearButton.addEventListener( MouseEvent.CLICK, clearButton_mouseClickHandler )
-	}
-    
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Children
     //
-    //--------------------------------------------------------------------------	
-	
+    //--------------------------------------------------------------------------
+
     public var input : TextField
     public var clearButton : ClearButton
-    
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers
     //
     //--------------------------------------------------------------------------
-    
+
     private function keyDownHandler( event : KeyboardEvent ) : void
     {
-    	event.stopImmediatePropagation()
-    	
-    	if( input.length > 0 )
-    	   showClearButton()
-    	else
-    	   hideClearButton()
+        event.stopImmediatePropagation()
+
+        if( input.length > 0 )
+           showClearButton()
+        else
+           hideClearButton()
     }
-    
+
     private function keyUpHandler( event : KeyboardEvent ) : void
     {
-    	event.stopImmediatePropagation()
+        event.stopImmediatePropagation()
     }
-    
+
     private function input_focusInHandler( event : FocusEvent ) : void
     {
         if( input.text == PROMPT )
         {
            input.text = ""
-           input.setTextFormat( PROMPT_FORMAT )        	
+           input.setTextFormat( PROMPT_FORMAT )
         }
     }
-    
+
     private function input_focusOutHandler( event : FocusEvent ) : void
     {
         if( input.text == "" )
         {
            input.text = PROMPT
            input.setTextFormat( INPUT_FORMAT )
-           hideClearButton()     	
+           hideClearButton()
         }
     }
-	  
+
     private function clearButton_mouseClickHandler( event : MouseEvent ) : void
     {
         input.text = ""
-        hideClearButton()	
+        hideClearButton()
     }
-    
-    
+
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Internal
     //
     //--------------------------------------------------------------------------
-    
+
     private function showClearButton() : void
     {
-    	clearButton.mouseEnabled = true
+        clearButton.mouseEnabled = true
         Tweener.addTween(
                             clearButton,
                             {
@@ -136,7 +136,7 @@ public class SearchInput extends Sprite
                             }
                         )
     }
-        
+
     private function hideClearButton() : void
     {
         clearButton.mouseEnabled = false

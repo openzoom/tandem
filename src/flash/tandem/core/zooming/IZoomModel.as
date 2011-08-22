@@ -37,49 +37,49 @@ public interface IZoomModel extends IEventDispatcher
     //----------------------------------
     //  zoom
     //----------------------------------
-        
+
     function get zoom() : Number
-    
+
     //----------------------------------
     //  minZoom
     //----------------------------------
-    
+
     function get minZoom() : Number
     function set minZoom( value : Number ) : void
-    
+
     //----------------------------------
     //  maxZoom
     //----------------------------------
-    
+
     function get maxZoom() : Number
     function set maxZoom( value : Number ) : void
-    
+
     //----------------------------------
     //  viewport
     //----------------------------------
-   
+
     function get viewport() : Rectangle
-      
+
     //----------------------------------
     //  viewAspectRatio
     //----------------------------------
-      
+
     function get viewAspectRatio() : Number
     function set viewAspectRatio( value : Number ) : void
 
     //----------------------------------
     //  viewportAspectRatio
     //----------------------------------
- 
+
     function get viewportAspectRatio() : Number
     function set viewportAspectRatio( value : Number ) : void
-    
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Zooming
     //
     //--------------------------------------------------------------------------
-    
+
     function zoomBy( value : Number = 1.5, originX : Number = 0.5, originY : Number = 0.5  ) : void
     function zoomTo( value : Number, originX : Number = 0.5, originY : Number = 0.5  ) : void
 
@@ -88,7 +88,7 @@ public interface IZoomModel extends IEventDispatcher
     //  Methods: Panning
     //
     //--------------------------------------------------------------------------
-    
+
     function moveTo( x : Number, y : Number ) : void
     function moveBy( x : Number, y : Number ) : void
 }

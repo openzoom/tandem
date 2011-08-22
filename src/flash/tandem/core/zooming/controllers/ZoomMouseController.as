@@ -33,84 +33,84 @@ public class ZoomMouseController extends AbstractZoomController
     //  Constructor
     //
     //--------------------------------------------------------------------------
-    
+
     /**
      *  Constructor.
-     */	
-	public function ZoomMouseController()
-	{
-	}
-	
+     */
+    public function ZoomMouseController()
+    {
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Overridden Methods: View
     //
     //--------------------------------------------------------------------------
-    
-	override protected function view_addedToStageHandler( event : Event ) : void
-	{
-		view.stage.addEventListener( MouseEvent.MOUSE_WHEEL, view_mouseWheelHandler, false, 0, true )
-        
+
+    override protected function view_addedToStageHandler( event : Event ) : void
+    {
+        view.stage.addEventListener( MouseEvent.MOUSE_WHEEL, view_mouseWheelHandler, false, 0, true )
+
         view.stage.addEventListener( MouseEvent.MOUSE_DOWN, view_mouseDownHandler, false, 0, true )
         view.stage.addEventListener( MouseEvent.MOUSE_UP, view_mouseUpHandler, false, 0, true )
         view.stage.addEventListener( Event.MOUSE_LEAVE, view_mouseLeaveHandler, false, 0, true )
-	}
-	
-	override protected function view_removedFromStageHandler( event : Event ) : void
-	{
-		view.stage.removeEventListener( MouseEvent.MOUSE_WHEEL, view_mouseWheelHandler )
-        
+    }
+
+    override protected function view_removedFromStageHandler( event : Event ) : void
+    {
+        view.stage.removeEventListener( MouseEvent.MOUSE_WHEEL, view_mouseWheelHandler )
+
         view.stage.removeEventListener( MouseEvent.MOUSE_DOWN, view_mouseDownHandler )
         view.stage.removeEventListener( MouseEvent.MOUSE_UP, view_mouseUpHandler )
         view.stage.removeEventListener( Event.MOUSE_LEAVE, view_mouseLeaveHandler )
-	}
-	
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers: Mouse Navigation
     //
     //--------------------------------------------------------------------------
-    
+
     private var stageDragVector : Rectangle = new Rectangle()
     private var modelViewportDragVector : Rectangle = new Rectangle()
-        
+
     private function view_mouseDownHandler( event : MouseEvent ) : void
     {
         if( !isMouseWithinViewport( event ) )
            return
-        
+
         stageDragVector.topLeft = new Point( event.stageX, event.stageY )
         modelViewportDragVector.topLeft = new Point( model.viewport.x, model.viewport.y )
-        
-        view.stage.addEventListener( MouseEvent.MOUSE_MOVE, view_mouseMoveHandler, false, 0, true )   
+
+        view.stage.addEventListener( MouseEvent.MOUSE_MOVE, view_mouseMoveHandler, false, 0, true )
     }
-    
+
     private function view_mouseMoveHandler( event : MouseEvent ) : void
     {
         if( !isMouseWithinViewport( event ) )
             view_mouseUpHandler( null )
-        
+
         stageDragVector.bottomRight = new Point( event.stageX, event.stageY )
-        
-        model.moveTo( modelViewportDragVector.x - stageDragVector.width / view.width, 
+
+        model.moveTo( modelViewportDragVector.x - stageDragVector.width / view.width,
                       modelViewportDragVector.y - stageDragVector.height / view.height )
     }
-    
+
     private function view_mouseUpHandler( event : MouseEvent ) : void
     {
         view.stage.removeEventListener( MouseEvent.MOUSE_MOVE, view_mouseMoveHandler )
     }
-    
+
     private function view_mouseLeaveHandler( event : Event ) : void
     {
         view_mouseUpHandler( null )
-    } 
-    
+    }
+
     private function view_mouseWheelHandler( event : MouseEvent ) : void
     {
         if( !isMouseWithinViewport( event ) )
             return
-            
+
         var factor : Number
             factor = 1 + event.delta / 40
 
@@ -119,7 +119,7 @@ public class ZoomMouseController extends AbstractZoomController
 
         if( viewport.width > view.width )
             originX = 0.5
-        
+
         if( viewport.height > view.height )
             originY = 0.5
 
@@ -129,7 +129,7 @@ public class ZoomMouseController extends AbstractZoomController
                       originY
                     )
     }
-    
+
     private function isMouseWithinViewport( event : MouseEvent ) : Boolean
     {
         var view : DisplayObject = DisplayObject( event.currentTarget )

@@ -25,52 +25,52 @@ import flash.events.Event;
 
 public class Timeline extends Sprite
 {
-	//--------------------------------------------------------------------------
-	//
-	//  Constructor
-	//
-	//--------------------------------------------------------------------------
-	/**
-	 * Constructor.
-	 */
-	public function Timeline() : void
-	{
-		addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler )
-	}
-	
-	//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    //
+    //  Constructor
+    //
+    //--------------------------------------------------------------------------
+    /**
+     * Constructor.
+     */
+    public function Timeline() : void
+    {
+        addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler )
+    }
+
+    //--------------------------------------------------------------------------
     //
     //  Children
     //
     //--------------------------------------------------------------------------
-    
-	public var background : Sprite
-	
-	//--------------------------------------------------------------------------
-	//
-	//  Event Handlers
-	//
-	//--------------------------------------------------------------------------
-	private function addedToStageHandler( event : Event ) : void
-	{
-		stage.addEventListener( Event.RESIZE, resizeHandler )
-	}
-	
-	private function resizeHandler( event : Event ) : void
-	{
-		updateDisplayList()
-	}
-	
+
+    public var background : Sprite
+
+    //--------------------------------------------------------------------------
+    //
+    //  Event Handlers
+    //
+    //--------------------------------------------------------------------------
+    private function addedToStageHandler( event : Event ) : void
+    {
+        stage.addEventListener( Event.RESIZE, resizeHandler )
+    }
+
+    private function resizeHandler( event : Event ) : void
+    {
+        updateDisplayList()
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Layout
     //
     //--------------------------------------------------------------------------
-    
-	private function updateDisplayList() : void
-	{
-        // layout component	
-	}
+
+    private function updateDisplayList() : void
+    {
+        // layout component
+    }
 }
 
 }

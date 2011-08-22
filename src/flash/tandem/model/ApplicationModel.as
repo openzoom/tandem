@@ -19,7 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 package tandem.model
 {
-	
+
 import com.adobe.webapis.flickr.FlickrService;
 import com.adobe.webapis.flickr.User;
 
@@ -33,18 +33,18 @@ public class ApplicationModel extends EventDispatcher
     //
     //--------------------------------------------------------------------------
     // If you don't have this file, please adjust api-key-sample.as and rename it!
-	include "../api-key.as"	
-	
+    include "../api-key.as"
+
     //--------------------------------------------------------------------------
     //
     //  Properties
     //
     //--------------------------------------------------------------------------
-    
-	public var service : FlickrService
-	public var photos : Array = []
-	public var user : User = new User()
-	
+
+    public var service : FlickrService
+    public var photos : Array = []
+    public var user : User = new User()
+
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -53,29 +53,29 @@ public class ApplicationModel extends EventDispatcher
     /**
      *  Constructor.
      */
-	public function ApplicationModel() 
-	{   
-		if ( instance != null )
-			throw new Error( "Hey, I'm a singleton, please don't instantiate me!" )
-		 
-		instance = this
-	}
+    public function ApplicationModel()
+    {
+        if ( instance != null )
+            throw new Error( "Hey, I'm a singleton, please don't instantiate me!" )
+
+        instance = this
+    }
 
     //--------------------------------------------------------------------------
     //
     //  Method: Access
     //
     //--------------------------------------------------------------------------
-    
+
     private static var instance : ApplicationModel
-    
-	public static function getInstance() : ApplicationModel 
-	{
-		if ( instance == null )
-			instance = new ApplicationModel()
-		
-			return instance
-	}
+
+    public static function getInstance() : ApplicationModel
+    {
+        if ( instance == null )
+            instance = new ApplicationModel()
+
+            return instance
+    }
 }
 
 }

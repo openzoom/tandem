@@ -19,44 +19,44 @@
 ////////////////////////////////////////////////////////////////////////////////
 package tandem.events
 {
-	
+
 import flash.events.Event;
 
 
 public class TandemEvent extends Event
 {
-	//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     //
     //  Class constants
     //
     //--------------------------------------------------------------------------
-    
-	public static const RESIZE : String = "resize"
-	public static const APPLICATION_COMPLETE : String = "applicationComplete"
-	public static const DATA_CHANGE : String = "dataChange"
-	
+
+    public static const RESIZE : String = "resize"
+    public static const APPLICATION_COMPLETE : String = "applicationComplete"
+    public static const DATA_CHANGE : String = "dataChange"
+
     //--------------------------------------------------------------------------
     //
     //  Constructor
     //
     //--------------------------------------------------------------------------
-    
-	public function TandemEvent( type : String, bubbles : Boolean = false,
-	                             cancelable : Boolean = false )
-	{
-		super( type, bubbles, cancelable );
-	}
-	
+
+    public function TandemEvent( type : String, bubbles : Boolean = false,
+                                 cancelable : Boolean = false )
+    {
+        super( type, bubbles, cancelable );
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Overridden Methods
     //
     //--------------------------------------------------------------------------
-    
-	override public function clone() : Event
-	{
-		return new TandemEvent( type, bubbles, cancelable )
-	}
+
+    override public function clone() : Event
+    {
+        return new TandemEvent( type, bubbles, cancelable )
+    }
 }
 
 }

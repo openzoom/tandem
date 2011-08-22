@@ -33,30 +33,30 @@ public class CollectionsView extends Sprite
     //  Constructor
     //
     //--------------------------------------------------------------------------
-        
+
     public function CollectionsView()
     {
         var matrix : Matrix = new Matrix()
             matrix.createGradientBox( 1000, 200, Math.PI / 4 )
-            
+
         graphics.beginGradientFill( GradientType.RADIAL, [ 0x444444, 0xCCCCCC ],
                                     [ 1, 1 ], [ 0, 1000 ], matrix )
         graphics.drawRect( 0, 0, 2806, 1910 )
         graphics.endFill()
-        
+
         loader = new Loader()
         loader.load( new URLRequest( "http://farm3.static.flickr.com/2244/1515174917_821d43b5cf_o.jpg" ) )
         addChild( loader )
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Children
     //
     //--------------------------------------------------------------------------
-    
+
     private var loader : Loader
-    
+
 }
-    
+
 }

@@ -29,9 +29,9 @@ public class ZoomModelEvent extends Event
     //  Class Constants
     //
     //--------------------------------------------------------------------------
-    
-	public static const CHANGE : String = "change"
-	
+
+    public static const CHANGE : String = "change"
+
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -40,22 +40,22 @@ public class ZoomModelEvent extends Event
     /**
     * Constructor.
     */
-	public function ZoomModelEvent( type : String = CHANGE, bubbles : Boolean = false,
-	                                cancelable : Boolean = false )
-	{
-		super( type, bubbles, cancelable )
-	}
-    
+    public function ZoomModelEvent( type : String = CHANGE, bubbles : Boolean = false,
+                                    cancelable : Boolean = false )
+    {
+        super( type, bubbles, cancelable )
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Overriden Methods
     //
     //--------------------------------------------------------------------------
-    	
-	override public function clone() : Event
-	{
-		return new ZoomModelEvent( type, bubbles, cancelable )
-	}
+
+    override public function clone() : Event
+    {
+        return new ZoomModelEvent( type, bubbles, cancelable )
+    }
 }
 
 }

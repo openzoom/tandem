@@ -19,7 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 package tandem.ui
 {
-	
+
 import caurina.transitions.Tweener;
 
 import flash.display.Graphics;
@@ -40,70 +40,70 @@ public class ZoomNavigator extends Sprite implements IZoomable
     //  Constructor
     //
     //--------------------------------------------------------------------------
-    
+
     /**
      *  Constructor.
      */
-	public function ZoomNavigator()
-	{
-		addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler, false, 0, true )
-		addEventListener( Event.REMOVED_FROM_STAGE, removedFromStageHandler, false, 0, true )
-		
-		createBackground()
-		createThumb()
-		
-	}
-	
+    public function ZoomNavigator()
+    {
+        addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler, false, 0, true )
+        addEventListener( Event.REMOVED_FROM_STAGE, removedFromStageHandler, false, 0, true )
+
+        createBackground()
+        createThumb()
+
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Children
     //
-    //--------------------------------------------------------------------------	
-	
-	private var background : Shape
-	private var thumb : Sprite
-	
+    //--------------------------------------------------------------------------
+
+    private var background : Shape
+    private var thumb : Sprite
+
     //--------------------------------------------------------------------------
     //
     //  Variables
     //
     //--------------------------------------------------------------------------
-    
-	private var explicitWidth : Number = 250
-	
+
+    private var explicitWidth : Number = 250
+
     //--------------------------------------------------------------------------
     //
     //  Properties
     //
     //--------------------------------------------------------------------------
-    
+
     //----------------------------------
     //  model
-    //----------------------------------	
-	
-	private var _model : IZoomModel
-	
-	public function get model() : IZoomModel
-	{
-		return _model
-	}
-	
-	public function set model( value : IZoomModel ) : void
-	{
-		_model = value
-		model.addEventListener( ZoomModelEvent.CHANGE, model_changeHandler )
-	}
-	
+    //----------------------------------
+
+    private var _model : IZoomModel
+
+    public function get model() : IZoomModel
+    {
+        return _model
+    }
+
+    public function set model( value : IZoomModel ) : void
+    {
+        _model = value
+        model.addEventListener( ZoomModelEvent.CHANGE, model_changeHandler )
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Event Handler: Model
     //
     //--------------------------------------------------------------------------
-    
-	private function model_changeHandler( event : ZoomModelEvent ) : void
-	{
-		var vp : Rectangle = model.viewport
-		
+
+    private function model_changeHandler( event : ZoomModelEvent ) : void
+    {
+        var vp : Rectangle = model.viewport
+
         Tweener.addTween(
                             background,
                             {
@@ -113,8 +113,8 @@ public class ZoomNavigator extends Sprite implements IZoomable
                                 transition: "easeOutSine"
                             }
                         )
-		
-		Tweener.addTween(
+
+        Tweener.addTween(
                             thumb,
                             {
                                 width: Math.min( vp.width, 1 ) * explicitWidth,
@@ -125,63 +125,63 @@ public class ZoomNavigator extends Sprite implements IZoomable
                                 transition: "easeOutSine"
                             }
                         )
-	}
-    
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers: Stage
     //
     //--------------------------------------------------------------------------
-    
+
     private function addedToStageHandler( event : Event ) : void
     {
         stage.addEventListener( Event.RESIZE, resizeHandler, false, 0, true )
         resizeHandler()
     }
-    
+
     private function removedFromStageHandler( event : Event ) : void
     {
         stage.removeEventListener( Event.RESIZE, resizeHandler )
     }
-	
-	private function resizeHandler( event : Event = null ) : void
-	{
-		model_changeHandler( null )
-	}
-	
+
+    private function resizeHandler( event : Event = null ) : void
+    {
+        model_changeHandler( null )
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Children
     //
     //--------------------------------------------------------------------------
-    
-	private function createBackground() : void
-	{
-		background = new Shape()
-		
-		var g : Graphics = background.graphics
-		
-			g.beginFill( 0x000000, 0.6 )
-			g.drawRect( 0, 0, 100, 100 )
-			g.endFill()
-			
-		addChild( background )
-	}
-	
-	private function createThumb() : void
-	{
-		thumb = new Sprite()
-		thumb.alpha = 0.8
-		
-		var g : Graphics = thumb.graphics
-		
-			g.beginFill( 0xFF3300, 0.2 )
-			g.lineStyle( 0, 0xFF3300 )
-			g.drawRect( 0, 0, 100, 100 )
-			g.endFill()
-			
-		addChild( thumb )
-	}
+
+    private function createBackground() : void
+    {
+        background = new Shape()
+
+        var g : Graphics = background.graphics
+
+            g.beginFill( 0x000000, 0.6 )
+            g.drawRect( 0, 0, 100, 100 )
+            g.endFill()
+
+        addChild( background )
+    }
+
+    private function createThumb() : void
+    {
+        thumb = new Sprite()
+        thumb.alpha = 0.8
+
+        var g : Graphics = thumb.graphics
+
+            g.beginFill( 0xFF3300, 0.2 )
+            g.lineStyle( 0, 0xFF3300 )
+            g.drawRect( 0, 0, 100, 100 )
+            g.endFill()
+
+        addChild( thumb )
+    }
 }
 
 }

@@ -19,7 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 package tandem.core.zooming.controllers
 {
-	
+
 import caurina.transitions.Tweener;
 
 import flash.events.Event;
@@ -27,60 +27,60 @@ import flash.geom.Rectangle;
 
 import tandem.core.zooming.ZoomModelEvent;
 import tandem.events.TandemEvent;
-	
+
 public class ZoomTransformationController extends AbstractZoomController
 {
     //--------------------------------------------------------------------------
     //
     //  Class Constants
     //
-    //--------------------------------------------------------------------------    
-    
+    //--------------------------------------------------------------------------
+
     private const TRANSITION_TYPE : String = "easeOutSine"
-	
+
     //--------------------------------------------------------------------------
     //
     //  Constructor
     //
     //--------------------------------------------------------------------------
-    
+
     /**
      *  Constructor.
      */
     public function ZoomTransformationController()
     {
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Properties
     //
     //--------------------------------------------------------------------------
-    
+
     public var duration : Number = 0.5
-    
+
     //--------------------------------------------------------------------------
     //
     //  Overridden Methods
     //
     //--------------------------------------------------------------------------
-    
+
     override protected function view_addedToStageHandler( event : Event ) : void
     {
         view.addEventListener( TandemEvent.RESIZE, view_resizeHandler )
     }
-    
+
     override protected function view_removedFromStageHandler( event : Event ) : void
     {
         view.removeEventListener( TandemEvent.RESIZE, view_resizeHandler )
     }
-    
+
     override protected function model_changeHandler( event : ZoomModelEvent ) : void
     {
         if( view )
         {
             var modelViewport : Rectangle = model.viewport
-            
+
             var newWidth : Number = viewport.width / modelViewport.width
             var newHeight : Number = viewport.height / modelViewport.height
             var newX : Number = viewport.x - modelViewport.x * newWidth
@@ -88,7 +88,7 @@ public class ZoomTransformationController extends AbstractZoomController
 
             if( newX - viewport.x > 0 )
                 newX = viewport.x + ( viewport.width - newWidth ) / 2
-            
+
             if( newY - viewport.y > 0 )
                 newY = viewport.y + ( viewport.height - newHeight ) / 2
 
@@ -105,16 +105,16 @@ public class ZoomTransformationController extends AbstractZoomController
                             )
         }
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers
     //
     //--------------------------------------------------------------------------
-    
+
     private function view_resizeHandler( event : Event ) : void
     {
-    	model.viewAspectRatio = view.width / view.height   	
+        model.viewAspectRatio = view.width / view.height
     }
 }
 

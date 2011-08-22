@@ -26,7 +26,7 @@ import flash.display.Sprite;
 import flash.events.MouseEvent;
 
 public class ClearButton extends Sprite
-{	
+{
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -35,38 +35,38 @@ public class ClearButton extends Sprite
     /**
      *  Constructor.
      */
-	public function ClearButton()
-	{
+    public function ClearButton()
+    {
         buttonMode = true
         mouseOutHandler( null )
         addEventListener( MouseEvent.MOUSE_OVER, mouseOverHandler )
         addEventListener( MouseEvent.MOUSE_OUT, mouseOutHandler )
-	}
-    
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers
     //
     //--------------------------------------------------------------------------
-    
+
     private function mouseOverHandler( event : MouseEvent ) : void
     {
         Tweener.addTween(
                             this,
                             {
                                 _color: 0xBBBBBB,
-                                time: 0.4                         
+                                time: 0.4
                             }
                         )
     }
-    
+
     private function mouseOutHandler( event : MouseEvent ) : void
     {
         Tweener.addTween(
                             this,
                             {
                                 _color: 0x777777,
-                                time: 0.3                         
+                                time: 0.3
                             }
                         )
     }

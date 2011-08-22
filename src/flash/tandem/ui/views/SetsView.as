@@ -37,15 +37,15 @@ public class SetsView extends Sprite
     */
     public function SetsView()
     {
-    	var matrix : Matrix = new Matrix()
-    	    matrix.createGradientBox( 100000, 20000, Math.PI / 4 )
-    	    
-    	graphics.beginGradientFill( GradientType.LINEAR, [ 0xFF6600, 0xFF0000 ],
-    	                            [ 1, 1 ], [ 0, 255 ], matrix, SpreadMethod.REFLECT )
+        var matrix : Matrix = new Matrix()
+            matrix.createGradientBox( 100000, 20000, Math.PI / 4 )
+
+        graphics.beginGradientFill( GradientType.LINEAR, [ 0xFF6600, 0xFF0000 ],
+                                    [ 1, 1 ], [ 0, 255 ], matrix, SpreadMethod.REFLECT )
         graphics.drawRect( 0, 0, 100000, 20000 )
         graphics.endFill()
     }
-    
+
 }
-    
+
 }

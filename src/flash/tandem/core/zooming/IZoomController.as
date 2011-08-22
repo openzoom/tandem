@@ -30,7 +30,7 @@ public interface IZoomController
     //  Properties
     //
     //--------------------------------------------------------------------------
-    
+
     //----------------------------------
     //  view
     //----------------------------------
@@ -42,13 +42,13 @@ public interface IZoomController
     //  viewport
     //----------------------------------
 
-    function get viewport() : Rectangle        
+    function get viewport() : Rectangle
     function set viewport( value : Rectangle ) : void
-    
+
     //----------------------------------
     //  model
     //----------------------------------
-    
+
     function get model() : IZoomModel
     function set model( value : IZoomModel ) : void
 }

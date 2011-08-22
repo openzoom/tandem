@@ -19,7 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 package tandem.ui
 {
-	
+
 import flash.display.MovieClip;
 import flash.display.Sprite;
 import flash.display.StageDisplayState;
@@ -28,7 +28,7 @@ import flash.events.FocusEvent;
 import flash.events.MouseEvent;
 
 public class GlobalNavigation extends Sprite
-{	
+{
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -37,66 +37,66 @@ public class GlobalNavigation extends Sprite
     /**
     * Constructor.
     */
-	public function GlobalNavigation()
-	{
-		addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler )
-	}
-	
+    public function GlobalNavigation()
+    {
+        addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler )
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Children
     //
     //--------------------------------------------------------------------------
-    
+
     public var logo : Sprite
     public var background : Sprite
     public var fullScreenButton : MovieClip
     public var searchInput : SearchInput
-	
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers
     //
     //--------------------------------------------------------------------------
-    
-	private function addedToStageHandler( event : Event ) : void
-	{
-		stage.addEventListener( Event.RESIZE, resizeHandler )
-		fullScreenButton.addEventListener( MouseEvent.CLICK, fullScreenClickHandler )
-			 	
-	 	// layout
-	 	updateDisplayList()
-	}
-	
-	private function resizeHandler( event : Event ) : void
-	{	
-		updateDisplayList()
-	}
-	
+
+    private function addedToStageHandler( event : Event ) : void
+    {
+        stage.addEventListener( Event.RESIZE, resizeHandler )
+        fullScreenButton.addEventListener( MouseEvent.CLICK, fullScreenClickHandler )
+
+        // layout
+        updateDisplayList()
+    }
+
+    private function resizeHandler( event : Event ) : void
+    {
+        updateDisplayList()
+    }
+
     private function fullScreenClickHandler( event : MouseEvent ) : void
     {
         toggleFullScreen()
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Methods
     //
     //--------------------------------------------------------------------------
-    
-	private function updateDisplayList() : void
-	{	
-		background.width = stage.stageWidth
-		
-		searchInput.x = ( stage.stageWidth - searchInput.width ) / 2
-		searchInput.y = ( height - searchInput.height ) / 2
-		
-		fullScreenButton.x = stage.stageWidth - 40 /* fullScreenButton.width */ - 6
-		fullScreenButton.y = 6
-	}
-	
-	private function toggleFullScreen() : void
-	{ 
+
+    private function updateDisplayList() : void
+    {
+        background.width = stage.stageWidth
+
+        searchInput.x = ( stage.stageWidth - searchInput.width ) / 2
+        searchInput.y = ( height - searchInput.height ) / 2
+
+        fullScreenButton.x = stage.stageWidth - 40 /* fullScreenButton.width */ - 6
+        fullScreenButton.y = 6
+    }
+
+    private function toggleFullScreen() : void
+    {
         if( stage.displayState == StageDisplayState.FULL_SCREEN )
         {
             stage.displayState = StageDisplayState.NORMAL
@@ -105,11 +105,11 @@ public class GlobalNavigation extends Sprite
         else
         {
             stage.displayState = StageDisplayState.FULL_SCREEN
-            dispatchEvent( new Event( Event.RESIZE ) )          
+            dispatchEvent( new Event( Event.RESIZE ) )
         }
-        
+
         updateDisplayList()
-	}
+    }
 }
 
 }

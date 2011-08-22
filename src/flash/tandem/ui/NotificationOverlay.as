@@ -24,7 +24,7 @@ import flash.display.Sprite;
 import flash.text.TextField;
 
 public class NotificationOverlay extends Sprite
-{	
+{
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -33,16 +33,16 @@ public class NotificationOverlay extends Sprite
     /**
      *  Constructor.
      */
-	public function NotificationOverlay()
-	{
-	}
-	
+    public function NotificationOverlay()
+    {
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Children
     //
-    //--------------------------------------------------------------------------	
-	
+    //--------------------------------------------------------------------------
+
     public var label : TextField
 }
 

@@ -21,16 +21,16 @@ package tandem.util
 {
 
 import flash.net.LocalConnection;
-	
+
 public class SystemUtil
 {
-	/**
-	 * Undocumented way to force the garbage collector to do its job.
-	 * From http://www.gskinner.com/blog/archives/2006/08/as3_resource_ma_2.html
-	 */
-	public static function gc() : void
-	{
-		try
+    /**
+     * Undocumented way to force the garbage collector to do its job.
+     * From http://www.gskinner.com/blog/archives/2006/08/as3_resource_ma_2.html
+     */
+    public static function gc() : void
+    {
+        try
         {
             new LocalConnection().connect( "tandem" )
             new LocalConnection().connect( "tandem" )
@@ -39,7 +39,7 @@ public class SystemUtil
         {
             // do nothing
         }
-	}
+    }
 }
 
 }

@@ -28,7 +28,7 @@ import flash.events.MouseEvent;
 import flash.text.TextField;
 
 public class KeyboardNavigationButton extends Sprite
-{	
+{
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -37,109 +37,109 @@ public class KeyboardNavigationButton extends Sprite
     /**
      *  Constructor.
      */
-	public function KeyboardNavigationButton()
-	{
+    public function KeyboardNavigationButton()
+    {
         enabled = true
         mouseOutHandler( null )
-		addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler )
-		addEventListener( Event.REMOVED_FROM_STAGE, removedFromStageHandler )
-	}
-    
+        addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler )
+        addEventListener( Event.REMOVED_FROM_STAGE, removedFromStageHandler )
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Children
     //
-    //--------------------------------------------------------------------------	
-	
+    //--------------------------------------------------------------------------
+
     public var label : TextField
-    
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers
     //
     //--------------------------------------------------------------------------
-    
+
     private function addedToStageHandler( event : Event ) : void
     {
-    	addEventListener( MouseEvent.CLICK, clickHandler )
-    	addEventListener( MouseEvent.MOUSE_OVER, mouseOverHandler )
-    	addEventListener( MouseEvent.MOUSE_OUT, mouseOutHandler )
-        stage.addEventListener( Event.MOUSE_LEAVE, stage_mouseLeaveHandler )    
+        addEventListener( MouseEvent.CLICK, clickHandler )
+        addEventListener( MouseEvent.MOUSE_OVER, mouseOverHandler )
+        addEventListener( MouseEvent.MOUSE_OUT, mouseOutHandler )
+        stage.addEventListener( Event.MOUSE_LEAVE, stage_mouseLeaveHandler )
     }
-    
+
     private function removedFromStageHandler( event : Event ) : void
     {
         removeEventListener( MouseEvent.CLICK, clickHandler )
         removeEventListener( MouseEvent.MOUSE_OVER, mouseOverHandler )
         removeEventListener( MouseEvent.MOUSE_OUT, mouseOutHandler )
-        stage.removeEventListener( Event.MOUSE_LEAVE, stage_mouseLeaveHandler )    
+        stage.removeEventListener( Event.MOUSE_LEAVE, stage_mouseLeaveHandler )
     }
-    
+
     private function clickHandler( event : MouseEvent ) : void
     {
         enabled = false
-        
+
         Tweener.addTween(
                             this,
                             {
                                 alpha: 0,
-                                time: 2                         
+                                time: 2
                             }
                         )
     }
-    
+
     private function mouseOverHandler( event : MouseEvent ) : void
     {
         Tweener.addTween(
                             label,
                             {
                                 _color: 0xBBBBBB,
-                                time: 0.4                         
+                                time: 0.4
                             }
                         )
     }
-    
+
     private function mouseOutHandler( event : MouseEvent ) : void
     {
         Tweener.addTween(
                             label,
                             {
                                 _color: 0x777777,
-                                time: 0.3                         
+                                time: 0.3
                             }
                         )
     }
-    
+
     private function stage_mouseLeaveHandler( event : Event ) : void
     {
         enabled = true
-        
+
         Tweener.addTween(
                             this,
                             {
                                 alpha: 1,
-                                time: 2                         
+                                time: 2
                             }
                         )
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Properties
     //
     //--------------------------------------------------------------------------
-    
+
     //----------------------------------
     //  enabled
     //----------------------------------
-    
+
     private var _enabled : Boolean = false
-    
+
     private function get enabled() : Boolean
     {
-    	return _enabled
+        return _enabled
     }
-    
+
     private function set enabled( value : Boolean ) : void
     {
         buttonMode = value

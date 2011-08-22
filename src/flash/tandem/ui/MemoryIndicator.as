@@ -27,7 +27,7 @@ import flash.text.TextField;
 
 
 public class MemoryIndicator extends Sprite
-{	
+{
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -36,36 +36,36 @@ public class MemoryIndicator extends Sprite
     /**
      *  Constructor.
      */
-	public function MemoryIndicator()
-	{
-		addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler )
-	}
-	
+    public function MemoryIndicator()
+    {
+        addEventListener( Event.ADDED_TO_STAGE, addedToStageHandler )
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Children
     //
-    //--------------------------------------------------------------------------	
-	
+    //--------------------------------------------------------------------------
+
     public var label : TextField
-    
+
     //--------------------------------------------------------------------------
     //
     //  Event Handlers
     //
     //--------------------------------------------------------------------------
-    
-	private function addedToStageHandler( event : Event ) : void
-	{
-		stage.addEventListener( Event.ENTER_FRAME, enterFrameHandler,
-		                        false, 0, true )
-	}
-	
-	private function enterFrameHandler( event : Event ) : void
-	{
-		label.text = ( System.totalMemory / 1024 / 1024 ).toFixed( 2 )
-		                 .toString() + "MB"
-	}
+
+    private function addedToStageHandler( event : Event ) : void
+    {
+        stage.addEventListener( Event.ENTER_FRAME, enterFrameHandler,
+                                false, 0, true )
+    }
+
+    private function enterFrameHandler( event : Event ) : void
+    {
+        label.text = ( System.totalMemory / 1024 / 1024 ).toFixed( 2 )
+                         .toString() + "MB"
+    }
 }
 
 }

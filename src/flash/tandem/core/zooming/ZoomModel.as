@@ -38,70 +38,70 @@ public class ZoomModel extends EventDispatcher implements IZoomModel
     //----------------------------------
     //  zoom
     //----------------------------------
-    
+
     private var _zoom : Number = 1
-    
+
     public function get zoom() : Number
     {
         return _zoom
-    }    
-    
+    }
+
     //----------------------------------
     //  minZoom
     //----------------------------------
-    
+
     private var _minZoom : Number = 1
-    
+
     public function get minZoom() : Number
     {
         return _minZoom
     }
-    
+
     public function set minZoom( value : Number ) : void
     {
         _minZoom = value
         zoomTo( _zoom )
     }
-    
+
     //----------------------------------
     //  maxZoom
     //----------------------------------
-    
+
     private var _maxZoom : Number = 100
-    
+
     public function get maxZoom() : Number
     {
         return _maxZoom
     }
-    
+
     public function set maxZoom( value : Number ) : void
     {
         _maxZoom = value
         zoomTo( _zoom )
     }
-    
+
     //----------------------------------
     //  viewport
     //----------------------------------
-    
+
     private var _viewport : Rectangle = new Rectangle()
-    
+
     public function get viewport() : Rectangle
     {
         return _viewport.clone()
     }
-      
+
     //----------------------------------
     //  viewAspectRatio
     //----------------------------------
-    
+
     private var _viewAspectRatio : Number = 1
-    
+
     public function get viewAspectRatio() : Number
     {
         return _viewAspectRatio
     }
-    
+
     public function set viewAspectRatio( value : Number ) : void
     {
         _viewAspectRatio = value
@@ -111,53 +111,53 @@ public class ZoomModel extends EventDispatcher implements IZoomModel
     //----------------------------------
     //  viewportAspectRatio
     //----------------------------------
-    
+
     private var _viewportAspectRatio : Number = 1
-    
+
     public function get viewportAspectRatio() : Number
     {
         return _viewportAspectRatio
     }
-    
+
     public function set viewportAspectRatio( value : Number ) : void
     {
         _viewportAspectRatio = value
         zoomTo( _zoom )
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Zooming
     //
     //--------------------------------------------------------------------------
-    
+
     public function zoomBy( value : Number = 1.5, originX : Number = 0.5,
                             originY : Number = 0.5  ) : void
     {
-    	zoomTo( zoom * value, originX, originY )
+        zoomTo( zoom * value, originX, originY )
     }
-    
+
     public function zoomTo( value : Number, originX : Number = 0.5,
                             originY : Number = 0.5  ) : void
     {
         _zoom = value
-        
+
         if ( _zoom < minZoom )
             _zoom = minZoom
-            
+
         if ( _zoom > maxZoom)
             _zoom = maxZoom
-            
-        
-        // remember old origin 
+
+
+        // remember old origin
         var oldOrigin : Point = getViewportOrigin( originX, originY )
-        
+
         // zoom
         var ratio : Number = viewAspectRatio / viewportAspectRatio
-        
+
         if( ratio < 1 )
         {
-        	// viewport.height < 1
+            // viewport.height < 1
             _viewport.width = 1 / _zoom
             _viewport.height =  ratio / _zoom
         }
@@ -171,70 +171,70 @@ public class ZoomModel extends EventDispatcher implements IZoomModel
         // move new origin to old origin
         moveOriginTo( oldOrigin.x, oldOrigin.y, originX, originY )
     }
-    
-    
+
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Panning
     //
     //--------------------------------------------------------------------------
-    
+
     public function moveTo( x : Number, y : Number ) : void
-    {        	
+    {
         _viewport.x = x
         _viewport.y = y
-        
+
         if( _viewport.x < 0 )
-        	_viewport.x = 0
-        	
+            _viewport.x = 0
+
         if( _viewport.y < 0 )
-        	_viewport.y = 0
-        
+            _viewport.y = 0
+
         if( ( _viewport.x + _viewport.width ) > 1 )
-        	_viewport.x = 1 - _viewport.width
-        	
+            _viewport.x = 1 - _viewport.width
+
         if( ( _viewport.y + _viewport.height ) > 1 )
-        	_viewport.y = 1 - _viewport.height            
+            _viewport.y = 1 - _viewport.height
 
         dispatchEvent( new ZoomModelEvent() )
     }
-    
+
     public function moveBy( x : Number, y : Number ) : void
     {
         moveTo( _viewport.x + x, _viewport.y + y )
     }
-    
+
     //--------------------------------------------------------------------------
     //
     //  Methods: Helper
     //
     //--------------------------------------------------------------------------
-    
+
     private function moveCenterTo( x : Number, y : Number ) : void
     {
         moveOriginTo( x, y, 0.5, 0.5 )
     }
-    
+
     private function getViewportCenter() : Point
     {
         return getViewportOrigin( 0.5, 0.5 )
     }
-    
+
     private function moveOriginTo( x : Number, y : Number,
                                    originX : Number, originY : Number ) : void
     {
         var newX : Number = x - _viewport.width * originX
         var newY : Number = y - _viewport.height * originY
-                    
+
         moveTo( newX, newY )
     }
-    
+
     private function getViewportOrigin( originX : Number,
                                         originY : Number ) : Point
     {
         var x : Number = _viewport.x + _viewport.width * originX
         var y : Number = _viewport.y + _viewport.height * originY
-       
+
         return new Point( x, y )
     }
 }

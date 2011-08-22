@@ -27,7 +27,7 @@ import flash.geom.Matrix;
 import flash.net.URLRequest;
 
 public class PeopleView extends Sprite
-{  
+{
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -36,29 +36,29 @@ public class PeopleView extends Sprite
     /**
     * Constructor.
     */
-	public function PeopleView()
-	{
+    public function PeopleView()
+    {
         var matrix : Matrix = new Matrix()
             matrix.createGradientBox( 1000, 200, Math.PI / 4 )
-            
+
         graphics.beginGradientFill( GradientType.LINEAR, [ 0x444444, 0xCCCCCC ],
                                     [ 1, 1 ], [ 0, 255 ], matrix )
         graphics.drawRect( 0, 0, 2592, 3872 )
         graphics.endFill()
-        
-		loader = new Loader()
-		loader.load( new URLRequest( "http://farm2.static.flickr.com/1275/544443647_cf854369de_o.jpg" ) )
-		addChild( loader )
-	}
-    
+
+        loader = new Loader()
+        loader.load( new URLRequest( "http://farm2.static.flickr.com/1275/544443647_cf854369de_o.jpg" ) )
+        addChild( loader )
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Children
     //
     //--------------------------------------------------------------------------
-    
+
     private var loader : Loader
-	
+
 }
-	
+
 }
