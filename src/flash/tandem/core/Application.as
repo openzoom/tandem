@@ -75,7 +75,8 @@ public class Application extends Sprite
     private const DEFAULT_USER_ID : String = "72389028@N00"
     private const DEFAULT_MINIMUM_ZOOM : Number = 0.25//0.5
     private const DEFAULT_MAXIMUM_ZOOM : Number = 180
-    
+    private const NUM_FARMS = 10
+
     //--------------------------------------------------------------------------
     //
     //  Children
@@ -150,11 +151,11 @@ public class Application extends Sprite
     {
         // TODO: Smells bad… =(
         Security.loadPolicyFile( "http://static.flickr.com/crossdomain.xml" )
-        
-        Security.loadPolicyFile( "http://farm1.static.flickr.com/crossdomain.xml" )
-        Security.loadPolicyFile( "http://farm2.static.flickr.com/crossdomain.xml" )
-        Security.loadPolicyFile( "http://farm3.static.flickr.com/crossdomain.xml" )
-        Security.loadPolicyFile( "http://farm4.static.flickr.com/crossdomain.xml" )
+
+        for (var i:int = 0; i < NUM_FARMS; i++)
+        {
+            Security.loadPolicyFile("http://farm" + i + ".static.flickr.com/crossdomain.xml")
+        }
 
         Security.loadPolicyFile( "http://l.yimg.com/crossdomain.xml" )
     }
