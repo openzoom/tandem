@@ -149,15 +149,13 @@ public class Application extends Sprite
 
     private function initializeSecurity() : void
     {
-        // TODO: Smells bad… =(
         Security.loadPolicyFile( "http://static.flickr.com/crossdomain.xml" )
+        Security.loadPolicyFile( "http://l.yimg.com/crossdomain.xml" )
 
         for (var i:int = 0; i < NUM_FARMS; i++)
         {
             Security.loadPolicyFile("http://farm" + i + ".static.flickr.com/crossdomain.xml")
         }
-
-        Security.loadPolicyFile( "http://l.yimg.com/crossdomain.xml" )
     }
 
     private function initializeLibraries() : void
