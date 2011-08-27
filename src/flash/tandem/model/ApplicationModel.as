@@ -32,8 +32,9 @@ public class ApplicationModel extends EventDispatcher
     //  Class Constants
     //
     //--------------------------------------------------------------------------
-    // If you don't have this file, please adjust api-key-sample.as and rename it!
-    include "../api-key.as"
+
+    // If you don't have this file, please complete settings-sample.as and rename it
+    include "../settings.as"
 
     //--------------------------------------------------------------------------
     //

@@ -27,8 +27,8 @@
   
   ----------------------------------------------------------------------------  
 
-  Please provide your personal Flickr API key in the file api-key-sample.as
-  and rename it to api-key.as. If you don't have a Flickr API key, apply for
+  Please provide your personal Flickr API key in the file `settings-sample.as`
+  and rename it to `settings.as`. If you don't have a Flickr API key, apply for
   one: <http://www.flickr.com/services/api/keys/apply/>
   
   ----------------------------------------------------------------------------
