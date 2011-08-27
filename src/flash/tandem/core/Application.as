@@ -75,7 +75,7 @@ public class Application extends Sprite
     private const DEFAULT_USER_ID : String = "72389028@N00"
     private const DEFAULT_MINIMUM_ZOOM : Number = 0.25//0.5
     private const DEFAULT_MAXIMUM_ZOOM : Number = 180
-    private const NUM_FARMS = 10
+    private const NUM_FARMS:int = 10
 
     //--------------------------------------------------------------------------
     //
