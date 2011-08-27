@@ -424,5 +424,7 @@
           </swatchList>
      </extendedSwatchLists>
      <PrinterSettings platform="macintosh"/>
-     <publishHistory/>
+     <publishHistory>
+          <PublishItem publishSize="30894" publishTime="1314424904" publishDebug="true"/>
+     </publishHistory>
 </DOMDocument>
