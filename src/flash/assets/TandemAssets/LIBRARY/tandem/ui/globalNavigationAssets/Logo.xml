@@ -1,0 +1,29 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/Logo" itemID="46b09f7f-00000506" linkageExportForAS="true" linkageBaseClass="flash.display.Sprite" linkageClassName="Logo" sourceLibraryItemHRef="Symbol 1" lastModified="1211308156" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="Logo">
+      <layers>
+        <DOMLayer name="Logo" color="#FFFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText width="67.8" height="24" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.17137145996094" d="1.17062377929688" tx="2.35" ty="2.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>tandem</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" bold="true" size="20" face="MyriadPro-Semibold" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

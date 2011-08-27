@@ -1,0 +1,31 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/fullScreenButtonAssets/FullScreenButtonBackground" itemID="4843fddb-00000db8" sourceLibraryItemHRef="Symbol 1" lastModified="1212488508">
+  <timeline>
+    <DOMTimeline name="FullScreenButtonBackground">
+      <layers>
+        <DOMLayer name="Background" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMRectangleObject objectWidth="40" objectHeight="28" x="-388.95" y="-183" lockFlag="true" topLeftRadius="8" topRightRadius="8" bottomLeftRadius="8" bottomRightRadius="8">
+                  <matrix>
+                    <Matrix tx="388.95" ty="183"/>
+                  </matrix>
+                  <fill>
+                    <SolidColor color="#2B2B2B"/>
+                  </fill>
+                  <stroke>
+                    <SolidStroke scaleMode="normal" weight="1.25">
+                      <fill>
+                        <SolidColor color="#333333"/>
+                      </fill>
+                    </SolidStroke>
+                  </stroke>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

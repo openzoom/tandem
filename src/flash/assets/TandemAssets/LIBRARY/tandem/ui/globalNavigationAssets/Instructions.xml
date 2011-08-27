@@ -1,0 +1,29 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/Instructions" itemID="4803aad5-00000919" sourceLibraryItemHRef="Symbol 1" lastModified="1208200886">
+  <timeline>
+    <DOMTimeline name="Instructions">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText width="303.6" height="19.2" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="2" ty="2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Move with W,A,S,D and Zoom with + / – or I &amp; O </characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="-0.5" size="16" face="MyriadPro-Semibold" fillColor="#444444"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

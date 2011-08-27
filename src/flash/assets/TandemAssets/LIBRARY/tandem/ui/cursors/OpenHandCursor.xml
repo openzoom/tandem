@@ -1,0 +1,49 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/cursors/OpenHandCursor" itemID="48381109-0000027c" linkageExportForAS="true" linkageBaseClass="flash.display.Sprite" linkageClassName="tandem.ui.cursors.OpenHandCursor" sourceFlashFilepath="../../../../../../../Desktop/FIG_PanZoom/com/adobe/wheelerstreet/fig/panzoom/icons/iconography.fla" sourceLibraryItemHRef="CursorHand_open" sourceLastModified="1189549684" lastModified="1211633929">
+  <timeline>
+    <DOMTimeline name="OpenHandCursor">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <matrix>
+                    <Matrix tx="-8" ty="-9"/>
+                  </matrix>
+                  <members>
+                    <DOMShape>
+                      <matrix>
+                        <Matrix tx="-8" ty="-9"/>
+                      </matrix>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                        <FillStyle index="2">
+                          <SolidColor color="#FFFFFF"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!121 320|100 320!100 320|100 280!100 280|80 280!80 280|80 261!80 261|60 261!60 261|60 241!60 241|40 241!40 241|40 201!40 201|21 201!21 201|21 180!21 180|0 180!0 180|0 140!0 140|21 140!21 140|21 120!21 120|60 120!60 120|60 81!60 81|40
+ 81!40 81|40 40!40 40|60 40!60 40|60 20!60 20|100 20!100 20|100 40!100 40|121 40!121 40|121 20!121 20|140 20!140 20|140 0!140 0|180 0!180 0|180 20!180 20|241 20!241 20|241 40!241 40|260 40!260 40|260 81!260 81|280 81!280 81|280 61!280
+ 61|300 61!300 61|300 81!300 81|320 81!320 81|320 160!320 160|300 160!300 160|300 221!300 221|280 221!280 221|280 261!280 261|260 261!260 261|260 320!260 320|241 320"/>
+                        <Edge fillStyle1="2" edges="
+!241 320|121 320"/>
+                        <Edge fillStyle0="2" fillStyle1="1" edges="
+!241 320|241 261!241 261|260 261!260 261|260 221!260 221|280 221!280 221|280 160!280 160|300 160!300 160|300 81!300 81|280 81!280 81|280 101!280 101|260 101!260 101|260 140!260 140|241 140!241 140|241 40!241 40|200 40!200 40|200 120!200
+ 120|180 120!180 120|180 20!180 20|140 20!140 20|140 120!140 120|121 120!121 120|121 81!121 81|100 81!100 81|100 40!100 40|60 40!60 40|60 81!60 81|80 81!80 81|80 120!80 120|100 120!100 120|100 180!100 180|80 180!80 180|80 160!80 160|60
+ 160!60 160|60 140!60 140|21 140!21 140|21 180!21 180|40 180!40 180|40 201!40 201|60 201!60 201|60 241!60 241|80 241!80 241|80 261!80 261|100 261!100 261|100 280!100 280|121 280!121 280|121 320"/>
+                        <Edge fillStyle1="1" edges="
+!60 120|60 140!60 140|80 140!80 140|80 120!80 120|60 120"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

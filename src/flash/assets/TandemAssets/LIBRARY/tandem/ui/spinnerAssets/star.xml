@@ -1,0 +1,26 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/spinnerAssets/star" itemID="48333a7b-000021b1" sourceLibraryItemHRef="Symbol 1" lastModified="1211635045">
+  <timeline>
+    <DOMTimeline name="star">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!277 -90|111 35!111 35|170 234!170 234|0 116!0 116|-170 234!-170 234|-111 35!-111 35|-277 -90!-277 -90|-69 -96!-69 -96|0 -292!0 -292|69 -96!69 -96|277 -90"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,106 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/SearchInput" itemID="4843fb58-00000604" linkageExportForAS="true" linkageBaseClass="tandem.ui.SearchInput" linkageClassName="tandem.ui.SearchInputComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1212489835" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="SearchInput">
+      <layers>
+        <DOMLayer name="Icon" color="#FFFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal" caps="square" weight="2.4">
+                            <fill>
+                              <SolidColor color="#666666"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge strokeStyle="1" edges="!353 338|433 418"/>
+                      </edges>
+                    </DOMShape>
+                    <DOMOvalObject objectWidth="154" objectHeight="154" x="-232.95" y="170" endAngle="0">
+                      <matrix>
+                        <Matrix a="0.071441650390625" d="0.071441650390625" tx="24.9" ty="-4.85"/>
+                      </matrix>
+                      <stroke>
+                        <SolidStroke scaleMode="normal" weight="2.4">
+                          <fill>
+                            <SolidColor color="#666666"/>
+                          </fill>
+                        </SolidStroke>
+                      </stroke>
+                    </DOMOvalObject>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Input" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMInputText name="input" width="233.5" height="15" includeOutlines="true" maxCharacters="25">
+                  <matrix>
+                    <Matrix tx="32" ty="8.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters></characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" size="14" bitmapSize="280" face="MyriadPro-Semibold" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMInputText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="ClearButton" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/searchInputAssets/ClearButton" name="clearButton" selected="true">
+                  <matrix>
+                    <Matrix tx="277" ty="5.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="8.35" y="8.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Background" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMRectangleObject objectWidth="300" objectHeight="28" x="-15" y="-258" lockFlag="true" topLeftRadius="8" topRightRadius="8" bottomLeftRadius="8" bottomRightRadius="8">
+                  <matrix>
+                    <Matrix tx="15" ty="258"/>
+                  </matrix>
+                  <fill>
+                    <SolidColor color="#2B2B2B"/>
+                  </fill>
+                  <stroke>
+                    <SolidStroke scaleMode="normal" weight="2">
+                      <fill>
+                        <SolidColor color="#333333"/>
+                      </fill>
+                    </SolidStroke>
+                  </stroke>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

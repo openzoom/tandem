@@ -1,0 +1,66 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/Spinner" itemID="483336f4-00001e08" linkageExportForAS="true" linkageClassName="tandem.ui.SpinnerComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1211641788" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="Spinner">
+      <layers>
+        <DOMLayer name="Star" color="#9933CC" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="118" tweenType="motion" motionTweenSync="true" motionTweenSnap="true" keyMode="24065">
+              <elements>
+                <DOMSymbolInstance libraryItemName="tandem/ui/spinnerAssets/star" name="">
+                  <matrix>
+                    <Matrix ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="118" duration="121" tweenType="motion" motionTweenSync="true" motionTweenSnap="true" keyMode="24065">
+              <elements>
+                <DOMSymbolInstance libraryItemName="tandem/ui/spinnerAssets/star" name="">
+                  <matrix>
+                    <Matrix a="-0.999984741210938" b="1.52587890625e-05" c="-1.52587890625e-05" d="-0.999984741210938" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="239" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="tandem/ui/spinnerAssets/star" name="" selected="true">
+                  <matrix>
+                    <Matrix a="0.999847412109375" b="-0.0174560546875" c="0.0174560546875" d="0.999847412109375" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Background" color="#4FFF4F" current="true" isSelected="true" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="240" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor alpha="0.4"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!283 -283[400 -166 400 0!400 0[400 166 283 283!283 283[166 400 0 400!0 400[-165 400 -282 283!-282 283[-400 166 -400 0!-400 0[-400 -166 -282 -283!-282 -283[-165 -400 0 -400!0 -400[166 -400 283 -283"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

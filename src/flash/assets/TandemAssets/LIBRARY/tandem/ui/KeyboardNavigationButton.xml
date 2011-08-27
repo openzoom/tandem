@@ -1,0 +1,45 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/KeyboardNavigationButton" itemID="48419652-00000276" linkageExportForAS="true" linkageBaseClass="tandem.ui.KeyboardNavigationButton" linkageClassName="tandem.ui.KeyboardNavigationButtonComponent" sourceLibraryItemHRef="tandem/ui/NotificationOverlay copy" lastModified="1212261868">
+  <timeline>
+    <DOMTimeline name="KeyboardNavigationButton">
+      <layers>
+        <DOMLayer name="Label" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="label" left="19.85" width="180.5" height="16.8" autoExpand="true" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-0.1" ty="9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Activate Keyboard Navigation</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" size="14" bitmapSize="280" face="MyriadPro-Semibold" fillColor="#CCCCCC"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Background" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMRectangleObject objectWidth="220" objectHeight="29" x="-87" y="-36" lockFlag="true" topLeftRadius="8" topRightRadius="8" bottomLeftRadius="8" bottomRightRadius="8">
+                  <matrix>
+                    <Matrix tx="87" ty="36"/>
+                  </matrix>
+                  <fill>
+                    <SolidColor color="#202020" alpha="0.8"/>
+                  </fill>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

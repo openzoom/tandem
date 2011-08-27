@@ -1,0 +1,208 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/GlobalNavigation" itemID="47acb062-00001840" linkageExportForAS="true" linkageBaseClass="tandem.ui.GlobalNavigation" linkageClassName="tandem.ui.GlobalNavigationComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1212489835" lastUniqueIdentifier="14">
+  <timeline>
+    <DOMTimeline name="GlobalNavigation">
+      <layers>
+        <DOMLayer name="FullScreen Button" color="#FF4F4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/FullScreenButton" name="fullScreenButton">
+                  <matrix>
+                    <Matrix tx="1154" ty="6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="63" y="14.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Breadcrumb" color="#4FFF4F" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#2F2F2F"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="2">
+                        <fill>
+                          <SolidColor color="#222222"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle0="1" strokeStyle="1" edges="!15140 122|7940 122!7940 122|7940 682!7940 682|15140 682!15140 682|15140 122"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="329.35" height="16.8" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="407" ty="14.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Collections &gt; Sets &gt; </characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" size="14" face="MyriadPro-Semibold" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                    <DOMTextRun>
+                      <characters>Sophie Hunger, Switzerland (2007)</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" size="14" face="MyriadPro-Semibold" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Buttons" color="#4FFFFF" locked="true" autoNamed="false" visible="false" open="false" layerType="folder">
+          <frames/>
+        </DOMLayer>
+        <DOMLayer name="Labels" color="#FF4FFF" parentLayerIndex="2" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText width="76.7" height="19.2" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="232.95" ty="13"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Collections</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" size="16" face="MyriadPro-Semibold" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText width="48.6" height="19.2" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="110.7" ty="13"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Photos</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" size="16" face="MyriadPro-Semibold" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText width="46.8" height="19.2" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="334" ty="13"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Search</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" size="16" face="MyriadPro-Semibold" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText width="29.05" height="19.2" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="182.5" ty="13"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Sets</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" size="16" face="MyriadPro-Semibold" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Highlight" color="#808080" parentLayerIndex="2" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF3300"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!3360 680|2060 680!2060 680|2060 120!2060 120|3360 120!3360 120|3360 680"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Backgrounds" color="#4F80FF" parentLayerIndex="2" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#292929"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!7780 122|6520 122!6520 122|6520 682!6520 682|7780 682!7780 682|7780 122"/>
+                    <Edge fillStyle1="1" edges="!6360 680|4520 680!4520 680|4520 120!4520 120|6360 120!6360 120|6360 680"/>
+                    <Edge fillStyle0="1" edges="!4440 120|3440 120!3440 120|3440 680!3440 680|4440 680!4440 680|4440 120"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Logo" color="#FFFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/Logo" name="logo">
+                  <matrix>
+                    <Matrix tx="10" ty="7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="46.65" y="9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Background" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/Background" name="background">
+                  <transformationPoint>
+                    <Point x="600" y="20"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/SearchInput" name="searchInput" selected="true">
+                  <matrix>
+                    <Matrix tx="450" ty="6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="150" y="14"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,90 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/PieMenu" itemID="48442e0e-00001ad4" linkageExportForAS="true" linkageBaseClass="tandem.ui.PieMenu" linkageClassName="PieMenuComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1212428420">
+  <timeline>
+    <DOMTimeline name="PieMenu">
+      <layers>
+        <DOMLayer name="Labels" color="#FFFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText width="100" height="16.8" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-50" ty="-57.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>View on</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" size="14" face="MyriadPro-Semibold" fillColor="#CCCCCC"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText left="46.95" width="50.1" height="16.8" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-72.35" ty="44.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Favorite</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" size="14" face="MyriadPro-Semibold" fillColor="#CCCCCC"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText left="33.5" width="33" height="16.8" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-50" ty="-44.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Flickr</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" size="14" face="MyriadPro-Semibold" fillColor="#CCCCCC"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="CloseButton" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Dividers" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Background" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#202020" alpha="0.901960784313726"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!261.5 -303.5|969 -1011!969 -1011[#236.0B -1400 0 -1400!0 -1400[#FFFDCA.8F -1400 -969.5 -1010.5!-969.5 -1010.5|-261.5 -303!-261.5 -303[-151 -400 0 -400!0 -400[#96.E7 -400 261.5 -303.5"/>
+                    <Edge fillStyle1="1" edges="!1011 -969[1400 #FFFDCA.EA 1400 0!1400 0[1400 #236.0B 1011 969!1011 969|303 261!303 261[400 #96.0D 400 0!400 0[400 #FFFF69.19 303.5 -261.5!303.5 -261.5|1011 -969"/>
+                    <Edge fillStyle0="1" edges="!0 400[-151 400 -261.5 303!-261.5 303|-969.5 1010.5!-969.5 1010.5[#FFFDCA.8F 1400 0 1400!0 1400[#236.0B 1400 969 1011!969 1011|261.5 303.5!261.5 303.5[#96.E7 400 0 400"/>
+                    <Edge fillStyle1="1" edges="!-303.5 -261[-400 #FFFF69.32 -400 0!-400 0[-400 #95.F5 -303.5 261!-303.5 261|-1011.5 968.5!-1011.5 968.5[-1400 #235.B -1400 0!-1400 0[-1400 #FFFDCB.42 -1011.5 -968.5!-1011.5 -968.5|-303.5 -261"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

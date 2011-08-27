@@ -1,0 +1,55 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/cursors/ClosedHandCursor" itemID="48381110-00000285" linkageExportForAS="true" linkageBaseClass="flash.display.Sprite" linkageClassName="tandem.ui.cursors.ClosedHandCursor" sourceFlashFilepath="../../../../../../../Desktop/FIG_PanZoom/com/adobe/wheelerstreet/fig/panzoom/icons/iconography.fla" sourceLibraryItemHRef="CursorHand_closed" sourceLastModified="1189549669" lastModified="1211633936">
+  <timeline>
+    <DOMTimeline name="ClosedHandCursor">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <matrix>
+                    <Matrix tx="-515" ty="-105"/>
+                  </matrix>
+                  <members>
+                    <DOMShape>
+                      <matrix>
+                        <Matrix tx="-515" ty="-105"/>
+                      </matrix>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                        <FillStyle index="2">
+                          <SolidColor color="#0F0F0F"/>
+                        </FillStyle>
+                        <FillStyle index="3">
+                          <SolidColor color="#FFFFFF"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!10260 2220|10240 2220!10240 2220|10240 2180!10240 2180|10220 2180!10220 2180|10220 2160!10220 2160|10199 2160!10199 2160|10199 2140!10199 2140|10180 2140!10180 2140|10180 2100!10180 2100|10199 2100!10199 2100|10199 2080!10199 2080|10220
+ 2080!10220 2080|10220 2060!10220 2060|10199 2060!10199 2060|10199 2020!10199 2020|10220 2020!10220 2020|10220 2000!10220 2000|10260 2000!10260 2000|10260 2020!10260 2020|10280 2020!10280 2020|10280 2000!10280 2000|10320 2000!10320 2000
+|10320 2020!10320 2020|10340 2020!10340 2020|10340 2000!10340 2000|10379 2000!10379 2000|10379 2020!10379 2020|10420 2020!10420 2020|10420 2040!10420 2040|10440 2040!10440 2040|10440 2120!10440 2120|10420 2120!10420 2120|10420 2160!10420
+ 2160|10400 2160"/>
+                        <Edge fillStyle1="2" edges="
+!10400 2160|10400 2180!10400 2180|10401 2180!10401 2180|10401 2200!10401 2200|10400 2200!10400 2200|10400 2220!10400 2220|10379 2220"/>
+                        <Edge fillStyle1="3" edges="
+!10379 2220|10260 2220"/>
+                        <Edge fillStyle0="3" fillStyle1="1" edges="
+!10400 2160|10400 2120!10400 2120|10420 2120!10420 2120|10420 2040!10420 2040|10400 2040!10400 2040|10400 2060!10400 2060|10379 2060!10379 2060|10379 2020!10379 2020|10340 2020!10340 2020|10340 2040!10340 2040|10320 2040!10320 2040|10320
+ 2020!10320 2020|10280 2020!10280 2020|10280 2040!10280 2040|10260 2040!10260 2040|10260 2020!10260 2020|10220 2020!10220 2020|10220 2060!10220 2060|10240 2060!10240 2060|10240 2100!10240 2100|10199 2100!10199 2100|10199 2140!10199 2140
+|10220 2140!10220 2140|10220 2160!10220 2160|10240 2160!10240 2160|10240 2180!10240 2180|10260 2180!10260 2180|10260 2220"/>
+                        <Edge fillStyle0="3" fillStyle1="2" edges="
+!10379 2220|10379 2160!10379 2160|10400 2160"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

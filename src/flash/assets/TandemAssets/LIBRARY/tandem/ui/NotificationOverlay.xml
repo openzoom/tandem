@@ -1,0 +1,45 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/NotificationOverlay" itemID="484149e4-000004f3" linkageExportForAS="true" linkageBaseClass="tandem.ui.NotificationOverlay" linkageClassName="tandem.ui.NotificationOverlayComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1212261870">
+  <timeline>
+    <DOMTimeline name="NotificationOverlay">
+      <layers>
+        <DOMLayer name="Label" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="label" left="26.85" width="166.55" height="28" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="9.9" ty="16"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Loading…</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" letterSpacing="-0.5" size="28" bitmapSize="560" face="MyriadPro-Semibold" fillColor="#CCCCCC"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Background" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMRectangleObject objectWidth="240" objectHeight="56" x="-87" y="-36" lockFlag="true" topLeftRadius="8" topRightRadius="8" bottomLeftRadius="8" bottomRightRadius="8">
+                  <matrix>
+                    <Matrix tx="87" ty="36"/>
+                  </matrix>
+                  <fill>
+                    <SolidColor color="#191919" alpha="0.6"/>
+                  </fill>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

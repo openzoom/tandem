@@ -1,0 +1,49 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/searchInputAssets/ClearButton" itemID="48451b6c-00000357" linkageExportForAS="true" linkageBaseClass="tandem.ui.ClearButton" linkageClassName="tandem.ui.ClearButtonComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1212489835">
+  <timeline>
+    <DOMTimeline name="ClearButton">
+      <layers>
+        <DOMLayer name="Backup: Cross" color="#9933CC" locked="true" autoNamed="false" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape selected="true" isFloating="true">
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" caps="square" weight="1.6">
+                        <fill>
+                          <SolidColor color="#2B2B2B"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!223 223S4|168 167!168 167|223 112!112 112|168 167!168 167|112 223"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Background" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#4D4D4D"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!335 167[335 236 285 284!285 284[236 334 167 334!167 334[98 334 49 284!49 284[0 236 0 167!0 167[0 98 49 48!49 48[98 0 167 0!167 0[236 0 285 48!285 48[335 98 335 167!228 82|168 144!168 144|106 82!106 82|82 107!82 107|142 168!142 168|82
+ 228!82 228|106 254!106 254|168 193!168 193|228 254!228 254|254 229!254 229|192 168!192 168|254 106!254 106|228 82"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
