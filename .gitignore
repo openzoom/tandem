@@ -1,0 +1,10 @@
+.DS_Store
+
+# Flash Builder
+.settings
+
+# binaries
+*.swf
+
+# settings
+settings.as
