@@ -54,10 +54,10 @@ public class ApplicationModel extends EventDispatcher
     /**
      *  Constructor.
      */
-    public function ApplicationModel()
+    public function ApplicationModel(enforcer:SingletonEnforcer)
     {
-        if ( instance != null )
-            throw new Error( "Hey, I'm a singleton, please don't instantiate me!" )
+        if (!enforcer)
+            throw new Error("Can’t instantiate singleton directly." )
 
         instance = this
     }
@@ -73,10 +73,12 @@ public class ApplicationModel extends EventDispatcher
     public static function getInstance() : ApplicationModel
     {
         if ( instance == null )
-            instance = new ApplicationModel()
+            instance = new ApplicationModel(new SingletonEnforcer())
 
             return instance
     }
 }
 
 }
+
+class SingletonEnforcer {}
