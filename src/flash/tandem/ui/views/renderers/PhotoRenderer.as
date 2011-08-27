@@ -32,9 +32,9 @@ import flash.events.MouseEvent;
 import flash.net.URLRequest;
 import flash.net.navigateToURL;
 
-import org.openzoom.flash.events.LoadingItemEvent;
-import org.openzoom.flash.net.ILoadingItem;
-import org.openzoom.flash.net.LoadingQueue;
+import org.openzoom.flash.events.NetworkRequestEvent;
+import org.openzoom.flash.net.INetworkRequest;
+import org.openzoom.flash.net.NetworkQueue;
 
 import tandem.core.IDataRenderer;
 import tandem.events.TandemEvent;
@@ -154,8 +154,7 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
     //  loader
     //----------------------------------
 
-//    public var loader : BulkLoader
-    public var loader : LoadingQueue
+    public var loader : NetworkQueue
 
     //--------------------------------------------------------------------------
     //
@@ -166,12 +165,9 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
     private function load( dimension : String = PhotoDimension.MEDIUM ) : void
     {
         url = PhotoUtil.getPhotoURL( Photo( data ), dimension )
-        var item : ILoadingItem = loader.addItem( url, Bitmap )
-            item.addEventListener( LoadingItemEvent.COMPLETE,
+        var item : INetworkRequest = loader.addRequest( url, Bitmap )
+            item.addEventListener( NetworkRequestEvent.COMPLETE,
                                    loadCompleteHandler )
-//        loader.add( url, { priority: priority++ } )
-//        loader.get( url ).addEventListener( Event.COMPLETE, loadCompleteHandler, false, 0, true )
-//        loader.start()
     }
 
     private function unload() : void
@@ -197,7 +193,7 @@ public class PhotoRenderer extends Sprite implements IDataRenderer
     //
     //--------------------------------------------------------------------------
 
-    private function loadCompleteHandler( event : LoadingItemEvent ) : void
+    private function loadCompleteHandler( event : NetworkRequestEvent ) : void
     {
 //      if( loader.get( url ) )
 //            loader.get( url ).removeEventListener( Event.COMPLETE, loadCompleteHandler )
