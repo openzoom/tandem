@@ -1,3 +1,6 @@
 [submodule "libs/as3flickrlib"]
 	path = libs/as3flickrlib
 	url = git@github.com:gasi/as3flickrlib.git
+[submodule "libs/as3corelib"]
+	path = libs/as3corelib
+	url = git@github.com:mikechambers/as3corelib.git
