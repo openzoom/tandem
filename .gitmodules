@@ -1,0 +1,3 @@
+[submodule "libs/as3flickrlib"]
+	path = libs/as3flickrlib
+	url = git@github.com:gasi/as3flickrlib.git
