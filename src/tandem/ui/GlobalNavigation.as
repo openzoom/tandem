@@ -88,6 +88,7 @@ public class GlobalNavigation extends Sprite
     {
         background.width = stage.stageWidth
 
+        searchInput.visible = false // disable search input
         searchInput.x = ( stage.stageWidth - searchInput.width ) / 2
         searchInput.y = ( height - searchInput.height ) / 2
 
