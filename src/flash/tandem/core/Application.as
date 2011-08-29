@@ -108,7 +108,7 @@ public class Application extends Sprite
     private var numPhotos : int = 363
     private var page : int = 1
     private var pageSize : int = 500
-    private var extras : String = "date_taken, original_format"
+    private var extras : String = "date_taken, original_format, machine_tags"
 
 
     //--------------------------------------------------------------------------
