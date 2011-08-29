@@ -1,12 +1,46 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/FullScreenButton" itemID="483eef0b-000003ea" sourceLibraryItemHRef="Symbol 1" lastModified="1212488508" lastUniqueIdentifier="4">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/FullScreenButton" itemID="483eef0b-000003ea" sourceLibraryItemHRef="Symbol 1" lastModified="1314589977" lastUniqueIdentifier="4">
   <timeline>
-    <DOMTimeline name="FullScreenButton" currentFrame="9">
+    <DOMTimeline name="FullScreenButton">
       <layers>
         <DOMLayer name="Actions" color="#FF4FFF" autoNamed="false">
           <frames>
             <DOMFrame index="0" duration="9" keyMode="9728">
               <Actionscript>
-                <script><![CDATA[stop()buttonMode = trueaddEventListener( MouseEvent.CLICK, mouseClickHandler )addEventListener( MouseEvent.MOUSE_OVER, mouseOverHandler )addEventListener( MouseEvent.MOUSE_OUT, mouseOutHandler )function mouseClickHandler( event : MouseEvent ){	if( currentFrame <= 20 )	    gotoAndStop( 21 )	else	    gotoAndStop( 1 )}function mouseOverHandler( event : MouseEvent ){	if( 10 <= currentFrame && currentFrame <= 20 )		gotoAndPlay( 20 - currentFrame )	else if( 30 <= currentFrame && currentFrame <= 40 )		gotoAndPlay( 60 - currentFrame )	else		play()}function mouseOutHandler( event : MouseEvent ){	if( 1 <= currentFrame && currentFrame <= 10 )		gotoAndPlay( 20 - currentFrame )	else if( 21 <= currentFrame && currentFrame <= 30 )		gotoAndPlay( 60 - currentFrame )	else		play()}]]></script>
+                <script><![CDATA[stop()
+
+buttonMode = true
+
+addEventListener( MouseEvent.CLICK, mouseClickHandler )
+addEventListener( MouseEvent.MOUSE_OVER, mouseOverHandler )
+addEventListener( MouseEvent.MOUSE_OUT, mouseOutHandler )
+
+function mouseClickHandler( event : MouseEvent )
+{
+	if( currentFrame <= 20 )
+	    gotoAndStop( 21 )
+	else
+	    gotoAndStop( 1 )
+}
+
+function mouseOverHandler( event : MouseEvent )
+{
+	if( 10 <= currentFrame && currentFrame <= 20 )
+		gotoAndPlay( 20 - currentFrame )
+	else if( 30 <= currentFrame && currentFrame <= 40 )
+		gotoAndPlay( 60 - currentFrame )
+	else
+		play()
+}
+
+function mouseOutHandler( event : MouseEvent )
+{
+	if( 1 <= currentFrame && currentFrame <= 10 )
+		gotoAndPlay( 20 - currentFrame )
+	else if( 21 <= currentFrame && currentFrame <= 30 )
+		gotoAndPlay( 60 - currentFrame )
+	else
+		play()
+}]]></script>
               </Actionscript>
               <elements/>
             </DOMFrame>
@@ -504,19 +538,19 @@
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>
-            <DOMFrame index="18" keyMode="15872">
+            <DOMFrame index="18" keyMode="9728">
               <elements>
                 <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/fullScreenButtonAssets/FullScreenButtonBackground" name="">
                   <transformationPoint>
                     <Point x="20" y="14"/>
                   </transformationPoint>
                   <color>
-                    <Color redMultiplier="0.99609375" blueMultiplier="0.99609375" greenMultiplier="0.99609375" redOffset="1" blueOffset="1" greenOffset="1"/>
+                    <Color redOffset="1" blueOffset="1" greenOffset="1"/>
                   </color>
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>
-            <DOMFrame index="19" keyMode="15872">
+            <DOMFrame index="19" keyMode="9728">
               <elements>
                 <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/fullScreenButtonAssets/FullScreenButtonBackground" name="">
                   <transformationPoint>
@@ -532,7 +566,7 @@
                     <Point x="20" y="14"/>
                   </transformationPoint>
                   <color>
-                    <Color redMultiplier="0.99609375" blueMultiplier="0.99609375" greenMultiplier="0.99609375" redOffset="1" blueOffset="1" greenOffset="1"/>
+                    <Color redOffset="1" blueOffset="1" greenOffset="1"/>
                   </color>
                 </DOMSymbolInstance>
               </elements>
@@ -549,7 +583,7 @@
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>
-            <DOMFrame index="39" duration="21" keyMode="15872">
+            <DOMFrame index="39" duration="21" keyMode="9728">
               <elements>
                 <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/fullScreenButtonAssets/FullScreenButtonBackground" name="">
                   <transformationPoint>

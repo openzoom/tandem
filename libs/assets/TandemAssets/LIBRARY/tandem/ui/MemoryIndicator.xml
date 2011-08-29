@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/MemoryIndicator" itemID="483814aa-0000054f" linkageExportForAS="true" linkageBaseClass="tandem.ui.MemoryIndicator" linkageClassName="tandem.ui.MemoryIndicatorComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1212257958">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/MemoryIndicator" itemID="483814aa-0000054f" linkageExportForAS="true" linkageBaseClass="tandem.ui.MemoryIndicator" linkageClassName="tandem.ui.MemoryIndicatorComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1314589938" isSpriteSubclass="true">
   <timeline>
     <DOMTimeline name="MemoryIndicator">
       <layers>

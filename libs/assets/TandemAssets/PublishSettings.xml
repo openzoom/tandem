@@ -74,7 +74,7 @@
     <ActionScriptVersion>3</ActionScriptVersion>
     <PackageExportFrame>1</PackageExportFrame>
     <PackagePaths></PackagePaths>
-    <AS3PackagePaths>../;../../../libs/tweener;.</AS3PackagePaths>
+    <AS3PackagePaths>../../src;.</AS3PackagePaths>
     <AS3ConfigConst>CONFIG::FLASH_AUTHORING=&quot;true&quot;;</AS3ConfigConst>
     <DebuggingPermitted>1</DebuggingPermitted>
     <DebuggingPassword></DebuggingPassword>
@@ -106,11 +106,7 @@
       </library-path-entry>
       <library-path-entry>
         <swc-path>../</swc-path>
-        <linkage>external</linkage>
-      </library-path-entry>
-      <library-path-entry>
-        <swc-path>../../../libs/tweener</swc-path>
-        <linkage>external</linkage>
+        <linkage>merge</linkage>
       </library-path-entry>
       <library-path-entry>
         <swc-path>.</swc-path>

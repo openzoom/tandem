@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/GlobalNavigation" itemID="47acb062-00001840" linkageExportForAS="true" linkageBaseClass="tandem.ui.GlobalNavigation" linkageClassName="tandem.ui.GlobalNavigationComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1212489835" lastUniqueIdentifier="14">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/GlobalNavigation" itemID="47acb062-00001840" linkageExportForAS="true" linkageBaseClass="tandem.ui.GlobalNavigation" linkageClassName="tandem.ui.GlobalNavigationComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1314589902" lastUniqueIdentifier="14" isSpriteSubclass="true">
   <timeline>
     <DOMTimeline name="GlobalNavigation">
       <layers>
@@ -190,7 +190,7 @@
                     <Point x="600" y="20"/>
                   </transformationPoint>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/SearchInput" name="searchInput" selected="true">
+                <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/SearchInput" name="searchInput" centerPoint3DX="600" centerPoint3DY="20">
                   <matrix>
                     <Matrix tx="450" ty="6"/>
                   </matrix>

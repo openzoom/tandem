@@ -2,9 +2,9 @@
      <folders>
           <DOMFolderItem name="tandem" itemID="48381448-00000405" isExpanded="true"/>
           <DOMFolderItem name="tandem/ui" itemID="4838144e-0000040e" isExpanded="true"/>
-          <DOMFolderItem name="tandem/ui/cursors" itemID="48381473-0000049f" isExpanded="true"/>
+          <DOMFolderItem name="tandem/ui/cursors" itemID="48381473-0000049f"/>
           <DOMFolderItem name="tandem/ui/globalNavigationAssets" itemID="48381496-00000501" isExpanded="true"/>
-          <DOMFolderItem name="tandem/ui/globalNavigationAssets/fullScreenButtonAssets" itemID="483f323b-00006b5f" isExpanded="true"/>
+          <DOMFolderItem name="tandem/ui/globalNavigationAssets/fullScreenButtonAssets" itemID="483f323b-00006b5f"/>
           <DOMFolderItem name="tandem/ui/globalNavigationAssets/searchInputAssets" itemID="48451c82-000005eb"/>
           <DOMFolderItem name="tandem/ui/spinnerAssets" itemID="4838153a-00000665"/>
           <DOMFolderItem name="tandem/ui/timelineAssets" itemID="4838154b-000006b6"/>
@@ -40,21 +40,39 @@
      <timelines>
           <DOMTimeline name="Tandem">
                <layers>
-                    <DOMLayer name="LICENSE" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="LICENSE" color="#4FFF4F" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <Actionscript>
-                                        <script><![CDATA[////////////////////////////////////////////////////////////////////////////////////  tandem. explore your world.//  Copyright (c) 2008 Daniel Gasienica (daniel@gasienica.ch)////  tandem is free software: you can redistribute it and/or modify//  it under the terms of the GNU Affero General Public License as published by//  the Free Software Foundation, either version 3 of the License, or//  (at your option) any later version.////  tandem is distributed in the hope that it will be useful,//  but WITHOUT ANY WARRANTY; without even the implied warranty of//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the//  GNU Affero General Public License for more details.////  You should have received a copy of the GNU Affero General Public License//  along with tandem. If not, see <http://www.gnu.org/licenses/>.//////////////////////////////////////////////////////////////////////////////////]]></script>
+                                        <script><![CDATA[////////////////////////////////////////////////////////////////////////////////
+//
+//  tandem. explore your world.
+//  Copyright (c) 2008 Daniel Gasienica (daniel@gasienica.ch)
+//
+//  tandem is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Affero General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  tandem is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU Affero General Public License for more details.
+//
+//  You should have received a copy of the GNU Affero General Public License
+//  along with tandem. If not, see <http://www.gnu.org/licenses/>.
+//
+////////////////////////////////////////////////////////////////////////////////]]></script>
                                    </Actionscript>
                                    <elements/>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="tandem" color="#808080" autoNamed="false">
+                    <DOMLayer name="tandem" color="#808080" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/Logo" name="">
+                                        <DOMSymbolInstance libraryItemName="tandem/ui/globalNavigationAssets/Logo" name="" centerPoint3DX="390" centerPoint3DY="238">
                                              <matrix>
                                                   <Matrix a="5" d="5" tx="179.75" ty="156"/>
                                              </matrix>
@@ -425,6 +443,15 @@
      </extendedSwatchLists>
      <PrinterSettings platform="macintosh"/>
      <publishHistory>
+          <PublishItem publishSize="24823" publishTime="1314589980" publishDebug="true"/>
+          <PublishItem publishSize="24826" publishTime="1314589885" publishDebug="true"/>
+          <PublishItem publishSize="24827" publishTime="1314589839" publishDebug="true"/>
+          <PublishItem publishSize="24824" publishTime="1314589812" publishDebug="true"/>
+          <PublishItem publishSize="24827" publishTime="1314589785" publishDebug="true"/>
+          <PublishItem publishSize="24827" publishTime="1314589763" publishDebug="true"/>
+          <PublishItem publishSize="24825" publishTime="1314589729" publishDebug="true"/>
+          <PublishItem publishSize="24827" publishTime="1314589709" publishDebug="true"/>
+          <PublishItem publishSize="24828" publishTime="1314589651" publishDebug="true"/>
           <PublishItem publishSize="30894" publishTime="1314424904" publishDebug="true"/>
      </publishHistory>
 </DOMDocument>

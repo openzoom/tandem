@@ -12,15 +12,15 @@
       </rdf:Description>
       <rdf:Description rdf:about=""
             xmlns:xmp="http://ns.adobe.com/xap/1.0/">
-         <xmp:MetadataDate>2011-08-26T23:01:27-07:00</xmp:MetadataDate>
-         <xmp:ModifyDate>2011-08-26T23:01:27-07:00</xmp:ModifyDate>
+         <xmp:MetadataDate>2011-08-28T20:47:28-07:00</xmp:MetadataDate>
+         <xmp:ModifyDate>2011-08-28T20:47:28-07:00</xmp:ModifyDate>
       </rdf:Description>
       <rdf:Description rdf:about=""
             xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
             xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#">
          <xmpMM:DerivedFrom rdf:parseType="Resource"/>
          <xmpMM:DocumentID>xmp.did:018011740720681188C6F9D63490C9F3</xmpMM:DocumentID>
-         <xmpMM:InstanceID>xmp.iid:018011740720681188C6F9D63490C9F3</xmpMM:InstanceID>
+         <xmpMM:InstanceID>xmp.iid:ED7F11740720681188C6D8102DD08025</xmpMM:InstanceID>
          <xmpMM:OriginalDocumentID>xmp.did:018011740720681188C6F9D63490C9F3</xmpMM:OriginalDocumentID>
          <xmpMM:History>
             <rdf:Seq>
@@ -30,6 +30,12 @@
                   <stEvt:when>2011-08-26T23:01:27-07:00</stEvt:when>
                   <stEvt:softwareAgent>Adobe Flash Professional CS5</stEvt:softwareAgent>
                   <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>created</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:ED7F11740720681188C6D8102DD08025</stEvt:instanceID>
+                  <stEvt:when>2011-08-28T20:47:28-07:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Flash Professional CS5</stEvt:softwareAgent>
                </rdf:li>
             </rdf:Seq>
          </xmpMM:History>

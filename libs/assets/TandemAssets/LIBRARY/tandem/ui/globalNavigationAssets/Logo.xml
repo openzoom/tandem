@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/Logo" itemID="46b09f7f-00000506" linkageExportForAS="true" linkageBaseClass="flash.display.Sprite" linkageClassName="Logo" sourceLibraryItemHRef="Symbol 1" lastModified="1211308156" lastUniqueIdentifier="2">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/Logo" itemID="46b09f7f-00000506" linkageExportForAS="true" linkageBaseClass="flash.display.Sprite" linkageClassName="Logo" sourceLibraryItemHRef="Symbol 1" lastModified="1314589883" lastUniqueIdentifier="2" isSpriteSubclass="true">
   <timeline>
     <DOMTimeline name="Logo">
       <layers>

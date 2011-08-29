@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/SearchInput" itemID="4843fb58-00000604" linkageExportForAS="true" linkageBaseClass="tandem.ui.SearchInput" linkageClassName="tandem.ui.SearchInputComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1212489835" lastUniqueIdentifier="1">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/globalNavigationAssets/SearchInput" itemID="4843fb58-00000604" linkageExportForAS="true" linkageBaseClass="tandem.ui.SearchInput" linkageClassName="tandem.ui.SearchInputComponent" sourceLibraryItemHRef="Symbol 1" lastModified="1314589876" lastUniqueIdentifier="1" isSpriteSubclass="true">
   <timeline>
     <DOMTimeline name="SearchInput">
       <layers>

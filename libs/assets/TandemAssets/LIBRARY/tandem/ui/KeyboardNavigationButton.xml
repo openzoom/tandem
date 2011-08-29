@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/KeyboardNavigationButton" itemID="48419652-00000276" linkageExportForAS="true" linkageBaseClass="tandem.ui.KeyboardNavigationButton" linkageClassName="tandem.ui.KeyboardNavigationButtonComponent" sourceLibraryItemHRef="tandem/ui/NotificationOverlay copy" lastModified="1212261868">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="tandem/ui/KeyboardNavigationButton" itemID="48419652-00000276" linkageExportForAS="true" linkageBaseClass="tandem.ui.KeyboardNavigationButton" linkageClassName="tandem.ui.KeyboardNavigationButtonComponent" sourceLibraryItemHRef="tandem/ui/NotificationOverlay copy" lastModified="1314589930" isSpriteSubclass="true">
   <timeline>
     <DOMTimeline name="KeyboardNavigationButton">
       <layers>
